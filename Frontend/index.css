@@ -1,0 +1,15 @@
+.testa{
+    width: 40px;
+    position:absolute;
+}
+.notes{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+    .notes #createNoteStyle:hover{
+    border: solid black;
+    border-radius: 5px;
+}
