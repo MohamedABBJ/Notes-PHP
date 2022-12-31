@@ -8,7 +8,14 @@
 
     $registro = $db->exec("INSERT INTO `notes-app`.`users` (`name`, `username`, `password`, `confirm_password`, `email`)
      VALUES ('$name','$username','$password','$confirm_password','$email')");
-     
+    
+    $idUserQuery = $db -> prepare("SELECT idusers FROM `notes-app`.`users` WHERE username = :username AND password = :password");
+    $idUserQuery->bindParam(':username', $username);
+    $idUserQuery->bindParam(':password', $password);
+    $idUserQuery->execute();
+    $idUser = $idUserQuery->fetchColumn();
+    $_SESSION['iduser'] = $idUser;
+
     $userTable = $db -> prepare("CREATE TABLE `notes-app`.`notesuser($idUser)` (
         `idnotesuser` INT NOT NULL AUTO_INCREMENT,
         `notetitle` VARCHAR(20) NULL,
