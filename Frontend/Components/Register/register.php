@@ -14,7 +14,6 @@
     $idUserQuery->bindParam(':password', $password);
     $idUserQuery->execute();
     $idUser = $idUserQuery->fetchColumn();
-    $_SESSION['iduser'] = $idUser;
 
     $userTable = $db -> prepare("CREATE TABLE `notes-app`.`notesuser($idUser)` (
         `idnotesuser` INT NOT NULL AUTO_INCREMENT,

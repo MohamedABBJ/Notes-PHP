@@ -16,7 +16,9 @@ $idUserQuery->bindParam(':username', $username);
 $idUserQuery->bindParam(':password', $password);
 $idUserQuery->execute();
 $idUser = $idUserQuery->fetchColumn();
+session_start();
 $_SESSION['iduser'] = $idUser;
+print_r($idUser);
 
 
 if($login->rowCount() > 0 && $username !== NULL && $password !== NULL){
@@ -32,7 +34,6 @@ if($login->rowCount() > 0 && $username !== NULL && $password !== NULL){
   $loginNameQuery->bindParam(':username', $username);
   $loginNameQuery->bindParam(':password', $password);
   $loginNameQuery->execute();
-  session_start();
   $loginStatus = $loginStatusQuery->fetchColumn();
   $loginName = $loginNameQuery->fetchColumn(); 
   $_SESSION['username'] = $username;
