@@ -7,14 +7,14 @@
     <title>Document</title>
     <link rel="stylesheet" href="index.css">
 </head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <body>
     <div>
             <?php 
             session_start();
             $loginStatusData = $_SESSION['loginStatus'];
             $loginNameData = $_SESSION['loginName'];
-            $idUser = $_SESSION['iduser'];
-            print_r($idUser);
+            print_r($loginStatusData);
 
             
             if($loginStatusData === 1){
@@ -30,59 +30,37 @@
     </div>
     <div id="div1">
         <h1 id="a">Notes App</h1>
-        <form id="submitNote" action="<?=$_SERVER['PHP_SELF']?>" method="post">
-            <input id='noteTitle' name="noteTitle" type="text" placeholder="Input the title of your note">
+        <form action="./Components/php/usernotes.php" id="submitNote" method="post">
+            <input id="noteTitle" name="noteTitle" type="text" placeholder="Input the title of your note">
             <input id="noteDescription" name="noteDescription" type="text" placeholder="Input the description of your note">
             <input type="submit" value="Submit">       
             </form>
+    </div>
     <div>
-        <?php 
-            include(__DIR__ . "/Components/php/bootstrap.php");
-            $usernameData = $_SESSION['username'];
-            $passwordData = $_SESSION['password'];
-            $idUser = $_SESSION['iduser'];
-            $noteTitle = $_POST['noteTitle'] ?? null;;
-            $noteDescription = $_POST['noteDescription'] ?? null;
-
-            $maxUserNotesIdQuery = $db -> prepare("SELECT MAX(idnotesuser) AS maxUserNotesId FROM `notes-app`.`notesuser($idUser)`");
-            $maxUserNotesIdQuery -> execute();
-            $maxUserNotesIdQuery = $maxUserNotesIdQuery -> fetch(PDO::FETCH_ASSOC);
-            $maxUserNotesId = $maxUserNotesIdQuery['maxUserNotesId'];
-
-
-            if(isset($showNotesDataFirstLog1) === false && $loginStatusData === 1){
-                    $createNote = $db -> exec("INSERT INTO `notes-app`.`notesuser($idUser)` (`notetitle`, `notedescription`) VALUES ('$noteTitle', '$noteDescription');");
-                    $showNotesData1 = "";
-                    $showNotesData2 = "";
-                    for ($i = 1; $i < $maxUserNotesId + 2; $i++) { 
-                    $showNotesQuery = $db -> prepare("SELECT notetitle, notedescription FROM `notes-app`.`notesuser($idUser)` 
-                                              WHERE idnotesuser = :idnotesuser");
+        <?php   
+                include(__DIR__ . "./Components/php/bootstrap.php");
+                $idUser = $_SESSION['iduser'];
+                $showNotesData = $_SESSION['showNotesData'];
+                $maxUserNotesId = $_SESSION['maxUserNotesId'];
+                for ($i = 1; $i < $maxUserNotesId + 2; $i++) {
+                    $showNotesQuery = $db->prepare("SELECT notetitle, notedescription FROM `notes-app`.`notesuser($idUser)` 
+                                                      WHERE idnotesuser = :idnotesuser");
                     $showNotesQuery->bindParam(':idnotesuser', $i);
                     $showNotesQuery->execute();
                     $showNotesData = $showNotesQuery->fetch();
-                    $_SESSION['showNotesData'] = $showNotesData;
                     $showNotesData1 = $showNotesData[0];
                     $showNotesData2 = $showNotesData[1];
-                    print_r($showNotesData1);
-                    print_r($showNotesData2);
-                
+                    echo ("$showNotesData1");
+                    echo ("$showNotesData2");
                 }
-            }else if($noteTitle = "" || $noteDescription = ""){
-                echo "
-                <script text='javascript'>
-                alert('incorrect value')
-                </script>";
-            }
-            ?>
+        ?>
     </div>
-
-        <h1>Notes</h1>
-        </div>
-                <div class="notes" id="notes">
+    <h1>Notes</h1>
+    <div class="notes" id="notes">
     </div>
     <script src="index.js"></script>
     <script text="javascript">
- 
+     
     </script>
 </body>
 </html>
