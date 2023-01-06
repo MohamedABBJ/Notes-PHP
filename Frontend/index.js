@@ -7,11 +7,9 @@ btnClickLogIn = () => {
 btnClickLogOut = () => {
   location.href = "./Components/Logout/logout.php";
 };
-
 btnClickNote = () => {
-  location.href = "./Components/notes.html";
+  location.href = "./Components/php/clickNote.php";
 };
-
 
 
 

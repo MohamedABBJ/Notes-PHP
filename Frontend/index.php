@@ -14,9 +14,10 @@
     <div>
             <?php 
             session_start();
+            $maxUserNotesId = $_SESSION['maxUserNotesId'];
             $loginStatusData = $_SESSION['loginStatus'];
             $loginNameData = $_SESSION['loginName'];
-            print_r($loginStatusData);
+            print_r($maxUserNotesId);
 
             
             if($loginStatusData === 1){
@@ -44,8 +45,8 @@
         if($loginStatusData === 1) {
             include(__DIR__ . "./Components/php/bootstrap.php");
             $idUser = $_SESSION['iduser'];
-            $maxUserNotesId = $_SESSION['maxUserNotesId'] ?? NULL;
-            for ($i = 1; $i < $maxUserNotesId + 2; $i++) {
+            $maxUserNotesId = $_SESSION['maxUserNotesId'];
+            for ($i = 1; $i < $maxUserNotesId + 1; $i++) {
                 $showNotesQuery = $db->prepare("SELECT notetitle, notedescription FROM `notes-app`.`notesuser($idUser)` 
                                                   WHERE idnotesuser = :idnotesuser");
                 $showNotesQuery->bindParam(':idnotesuser', $i);
@@ -55,7 +56,7 @@
                 $showNoteDescription = $showNotesData[1];
                 echo ("
                     <div>
-                    <button class='Notebtn'>
+                    <button class='Notebtn' onclick=btnClickNote()>
                     <p>
                     $showNoteTitle
                     </p>

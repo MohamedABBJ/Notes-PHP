@@ -7,9 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Note title</h1>
-    <h2>As</h2>
-    <h3>Note description</h3>
-    <p>A</p>
+    <h1>Note Title</h1>
+    <?php 
+    
+    
+    ?>
+    <h2>Note description</h2>
 </body>
 </html>
