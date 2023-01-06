@@ -12,6 +12,11 @@ btnClickNote = () => {
   location.href = "./Components/notes.html";
 };
 
+
+
+
+
+/* NOT NEEDED ANYMORE
 let btnClickAddNote = () => {
   i++;
   noteTitle = document.getElementById("noteTitle").value;
@@ -59,3 +64,4 @@ $.ajax({
 });
 
 }
+*/
