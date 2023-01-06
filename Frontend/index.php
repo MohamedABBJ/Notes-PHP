@@ -5,16 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" type="text/css" href="style.php">
 </head>
 <body>
+    <div class="a">
+        <button class="b">aaaa</button>
+    </div>
     <div>
             <?php 
             session_start();
             $loginStatusData = $_SESSION['loginStatus'];
             $loginNameData = $_SESSION['loginName'];
-            
-            echo $loginStatusData;
+            print_r($loginStatusData);
+
             
             if($loginStatusData === 1){
                 echo "Welcome ". $loginNameData . " ";
@@ -26,20 +29,53 @@
         }
 
             ?>
+    </div> 
+    <div class="div1">
+        <h1>Notes App</h1>
+        <form action="./Components/php/usernotes.php" id="submitNote" method="post">
+            <input id="noteTitle" name="noteTitle" type="text" placeholder="Input the title of your note">
+            <input id="noteDescription" name="noteDescription" type="text" placeholder="Input the description of your note">
+            <input type="submit" value="Submit">       
+    </form>
     </div>
-    <div id="div1">
-        <h1 id="a">Notes App</h1>
+    <div class="Notes">
+    <?php   
+            $loginStatusData = $_SESSION['loginStatus'];
+        if($loginStatusData === 1) {
+            include(__DIR__ . "./Components/php/bootstrap.php");
+            $idUser = $_SESSION['iduser'];
+            $maxUserNotesId = $_SESSION['maxUserNotesId'] ?? NULL;
+            for ($i = 1; $i < $maxUserNotesId + 2; $i++) {
+                $showNotesQuery = $db->prepare("SELECT notetitle, notedescription FROM `notes-app`.`notesuser($idUser)` 
+                                                  WHERE idnotesuser = :idnotesuser");
+                $showNotesQuery->bindParam(':idnotesuser', $i);
+                $showNotesQuery->execute();
+                $showNotesData = $showNotesQuery->fetch();
+                $showNoteTitle = $showNotesData[0];
+                $showNoteDescription = $showNotesData[1];
+                echo ("
+                    <div>
+                    <button class='Notebtn'>
+                    <p>
+                    $showNoteTitle
+                    </p>
+                    <p>
+                    $showNoteDescription
+                    </p>
+                    </button> 
+                    </div>
+                ");
+            }
+        }
 
-        <form action="./Components/php/submitnote.php" method="post">
-        <input id='noteTitle' name="noteTitle" type="text" placeholder="Input the title of your note">
-        <input id="noteDescription" name="noteDescription" type="text" placeholder="Input the description of your note">
-        <input type="submit" value="Submit">       
-        </form>
-
-        <h1>Notes</h1>
+        ?>
     </div>
+    <h1>Notes</h1>
     <div class="notes" id="notes">
     </div>
     <script src="index.js"></script>
+    <script text="javascript">
+     
+    </script>
 </body>
 </html>

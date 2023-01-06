@@ -1,5 +1,4 @@
 let noteTitle, noteDescription;
-
 i = 0;
 
 btnClickLogIn = () => {
@@ -13,6 +12,11 @@ btnClickNote = () => {
   location.href = "./Components/notes.html";
 };
 
+
+
+
+
+/* NOT NEEDED ANYMORE
 let btnClickAddNote = () => {
   i++;
   noteTitle = document.getElementById("noteTitle").value;
@@ -47,3 +51,17 @@ let btnClickAddNote = () => {
   descriptionDiv.style.left = "20%";
   document.getElementById("createNoteStyle" + i).appendChild(descriptionDiv);
 };
+
+btnCreateNote = () =>{
+$.ajax({
+  type: "post",
+  url: "./Components/php/submitnote.php",
+  data: "",
+  dataType: "json",
+  success: function (result) {
+    console.log(result)
+  }
+});
+
+}
+*/

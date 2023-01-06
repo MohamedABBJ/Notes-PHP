@@ -11,6 +11,15 @@ $login->bindParam(':password', $password);
 $login->execute();
 
 
+$idUserQuery = $db -> prepare("SELECT idusers FROM `notes-app`.`users` WHERE username = :username AND password = :password");
+$idUserQuery->bindParam(':username', $username);
+$idUserQuery->bindParam(':password', $password);
+$idUserQuery->execute();
+$idUser = $idUserQuery->fetchColumn();
+session_start();
+$_SESSION['iduser'] = $idUser;
+print_r($idUser);
+
 
 if($login->rowCount() > 0 && $username !== NULL && $password !== NULL){
   $loggedIn = $db->prepare("UPDATE `notes-app`.`users` SET loggedstatus = 1 WHERE username = :username AND password = :password");
@@ -25,7 +34,6 @@ if($login->rowCount() > 0 && $username !== NULL && $password !== NULL){
   $loginNameQuery->bindParam(':username', $username);
   $loginNameQuery->bindParam(':password', $password);
   $loginNameQuery->execute();
-  session_start();
   $loginStatus = $loginStatusQuery->fetchColumn();
   $loginName = $loginNameQuery->fetchColumn(); 
   $_SESSION['username'] = $username;
