@@ -7,11 +7,22 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Note Title</h1>
     <?php 
+    include(__DIR__ . "/bootstrap.php");
+    $noteId = $_POST['noteTitleValue'];
+    session_start();
+    $idUser = $_SESSION['iduser'];
     
-    
-    ?>
+    $searchNote = $db -> prepare("SELECT notetitle, notedescription FROM `notes-app`.`notesuser($idUser)` WHERE idnotesuser = $noteId");
+    $searchNote->execute();
+    $showSearchedNote = $searchNote->fetch();
+    $showNoteTitle = $showSearchedNote[0];
+    $showNoteDescription = $showSearchedNote[1];
+    echo("
+    <h1>Note Title</h1>
+    $showNoteTitle
     <h2>Note description</h2>
+    $showNoteDescription")
+    ?>
 </body>
 </html>

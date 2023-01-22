@@ -37,16 +37,17 @@
             <input id="noteTitle" name="noteTitle" type="text" placeholder="Input the title of your note">
             <input id="noteDescription" name="noteDescription" type="text" placeholder="Input the description of your note">
             <input type="submit" value="Submit">       
+            <button></button>
     </form>
     </div>
     <div class="Notes">
     <?php   
-            $loginStatusData = $_SESSION['loginStatus'];
+        $loginStatusData = $_SESSION['loginStatus'];
         if($loginStatusData === 1) {
             include(__DIR__ . "./Components/php/bootstrap.php");
             $idUser = $_SESSION['iduser'];
             $maxUserNotesId = $_SESSION['maxUserNotesId'];
-            for ($i = 1; $i < $maxUserNotesId + 1; $i++) {
+            for ($i = 1; $i < $maxUserNotesId + 1; $i++){
                 $showNotesQuery = $db->prepare("SELECT notetitle, notedescription FROM `notes-app`.`notesuser($idUser)` 
                                                   WHERE idnotesuser = :idnotesuser");
                 $showNotesQuery->bindParam(':idnotesuser', $i);
@@ -56,27 +57,49 @@
                 $showNoteDescription = $showNotesData[1];
                 echo ("
                     <div>
-                    <button class='Notebtn' onclick=btnClickNote()>
-                    <p>
-                    $showNoteTitle
+                    <form action='./Components/php/clickNote.php' id='submitNote' method='post'>
+                    <button class='Notebtn' type='submit' name='noteTitleValue' value='$i'>
+                    <p> 
+                    $showNoteTitle 
                     </p>
-                    <p>
+                    <p> 
                     $showNoteDescription
                     </p>
-                    </button> 
+                    </button>
+                    </form
                     </div>
-                ");
-            }
-        }
+            ");
 
-        ?>
+            //Toca cambiar los botones a form e intentar hacer lo que puse abajo, lo hare mañana buen trabajo.
+            }
+            
+        }
+                    
+    ?>
     </div>
     <h1>Notes</h1>
     <div class="notes" id="notes">
-    </div>
-    <script src="index.js"></script>
-    <script text="javascript">
-     
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <script src="index.js"></script>
+        <script text="javascript">
+            noteButtons = document.getElementsByClassName('Notebtn')
+    for (let i = 0; i < noteButtons.length; i++) {
+        noteButtons[i].onclick = function (e) {
+        var noteButtonTitleValue = 2
+        $.ajax({
+            url:"./Components/php/clickNote.php",
+            method:"POST",
+            dataType:'text',
+            data:{'noteButtonTitleValue' : noteButtonTitleValue},
+            success: function(data){
+                location.href = "./Components/php/clickNote.php"
+            }
+        })
+    }
+        //Buscar notetitlevalue en la base de datos y poner los valores en clicknote para que aparezcan alla correctamente.
+    }
     </script>
 </body>
+
 </html>
