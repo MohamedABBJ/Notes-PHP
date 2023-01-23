@@ -11,6 +11,7 @@
     include(__DIR__ . "/bootstrap.php");
     $noteId = $_POST['noteTitleValue'];
     session_start();
+    $_SESSION['noteId'] = $noteId;
     $idUser = $_SESSION['iduser'];
     
     $searchNote = $db -> prepare("SELECT notetitle, notedescription FROM `notes-app`.`notesuser($idUser)` WHERE idnotesuser = $noteId");
@@ -22,7 +23,19 @@
     <h1>Note Title</h1>
     $showNoteTitle
     <h2>Note description</h2>
-    $showNoteDescription")
+    $showNoteDescription
+    //Hacer que la nota sea editada y puesta tanto en la base de datos como en la pagina.
+    "
+    );
     ?>
+    <button onclick="editTask()">Edit Task</button>
+    <button>Delete Task</button>
+
+
+    <script text="javascript">
+        let editTask = () =>{
+            location.href = "./editNote.php"
+        }
+    </script>
 </body>
 </html>
