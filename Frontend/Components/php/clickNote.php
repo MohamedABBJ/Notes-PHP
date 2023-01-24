@@ -29,12 +29,18 @@
     );
     ?>
     <button onclick="editTask()">Edit Task</button>
-    <button>Delete Task</button>
+    <button onclick="deleteTask()">Delete Task</button>
 
 
     <script text="javascript">
         let editTask = () =>{
             location.href = "./editNote.php"
+        }
+        let deleteTask = () =>{
+            deleteTaskOption = window.confirm("Are you sure that you want to delete this task?");
+            if(deleteTaskOption){
+                location.href = "./deleteNote.php"
+            }
         }
     </script>
 </body>

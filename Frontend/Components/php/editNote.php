@@ -34,6 +34,7 @@
         $editNote->execute();
         echo("Note Title and Description has been edited successfully");
         echo("Wait a moment, redirecting...");
+        header("refresh:2;url='../../index.php");
     }
     //Editing noteTitle
     else if(empty($newDescription) && !empty($newTitle)){
@@ -42,6 +43,7 @@
             $editNote->execute();
             echo("Note Title has been edited successfully");
             echo("Wait a moment, redirecting...");
+            header("refresh:2;url='../../index.php");
         }
         //Editing noteDescription
     else if(!empty($newDescription) && empty($newTitle)){
@@ -50,6 +52,7 @@
             $editNote->execute();
             echo("Note Description has been edited successfully");
             echo("Wait a moment, redirecting...");
+            header("refresh:2;url='../../index.php");
         }
     else{
         echo("<script>alert('You cannot leave both inputs in blank!, if you do not want to edit the note then click cancel')</script>");

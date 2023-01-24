@@ -53,22 +53,24 @@
                 $showNotesQuery->bindParam(':idnotesuser', $i);
                 $showNotesQuery->execute();
                 $showNotesData = $showNotesQuery->fetch();
-                $showNoteTitle = $showNotesData[0];
-                $showNoteDescription = $showNotesData[1];
-                echo ("
-                    <div>
-                    <form action='./Components/php/clickNote.php' id='submitNote' method='post'>
-                    <button class='Notebtn' type='submit' name='noteTitleValue' value='$i'>
-                    <p> 
-                    $showNoteTitle 
-                    </p>
-                    <p> 
-                    $showNoteDescription
-                    </p>
-                    </button>
-                    </form
-                    </div>
-            ");
+                if(!empty($showNotesData)){
+                    $showNoteTitle = $showNotesData[0];
+                    $showNoteDescription = $showNotesData[1];
+                    echo ("
+                        <div>
+                        <form action='./Components/php/clickNote.php' id='submitNote' method='post'>
+                        <button class='Notebtn' type='submit' name='noteTitleValue' value='$i'>
+                        <p> 
+                        $showNoteTitle 
+                        </p>
+                        <p> 
+                        $showNoteDescription
+                        </p>
+                        </button>
+                        </form
+                        </div>
+                ");
+                }   
 
             }
             
