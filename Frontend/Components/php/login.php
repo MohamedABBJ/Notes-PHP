@@ -34,8 +34,13 @@ if($login->rowCount() > 0 && $username !== NULL && $password !== NULL){
   $loginNameQuery->bindParam(':username', $username);
   $loginNameQuery->bindParam(':password', $password);
   $loginNameQuery->execute();
+  $maxUserNotesIdQuery = $db->prepare("SELECT MAX(idnotesuser) AS maxUserNotesId FROM `notes-app`.`notesuser($idUser)`");
+  $maxUserNotesIdQuery->execute();
+  $maxUserNotesIdQuery = $maxUserNotesIdQuery->fetch(PDO::FETCH_ASSOC);
+  $maxUserNotesId = $maxUserNotesIdQuery['maxUserNotesId'];
   $loginStatus = $loginStatusQuery->fetchColumn();
   $loginName = $loginNameQuery->fetchColumn(); 
+  $_SESSION['maxUserNotesId'] = $maxUserNotesId;
   $_SESSION['username'] = $username;
   $_SESSION['password'] = $password;
   $_SESSION['loginStatus'] = $loginStatus;
