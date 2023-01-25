@@ -1,5 +1,5 @@
 <?php 
-    include("../php/bootstrap.php");
+    include("../DB/dbConection.php");
     $name = $_REQUEST['name'];
     $username = $_REQUEST['username'];
     $email = $_REQUEST['email'];
@@ -30,7 +30,7 @@
         echo "<button onclick='btn_Register()'>Go back to login</button>";
         echo " <script>
         btn_Register = () => {
-            location.href = '../Login/login.html'
+            location.href = '../../../Frontend/Components/logIn/login.html'
         }
         </script>";
      }else{

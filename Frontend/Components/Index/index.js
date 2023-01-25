@@ -1,5 +1,5 @@
 btnClickLogIn = () => {
-  location.href = "./Components/Login/login.html";
+  location.href = "../Frontend/Components/logIn/login.html";
 };
 btnClickLogOut = () => {
   location.href = "./Components/Logout/logout.php";

@@ -1,5 +1,5 @@
 <?php 
-include(__DIR__ . "/bootstrap.php");
+include(__DIR__ . "../../DB/dbConection.php");
 session_start();
 $idUser = $_SESSION['iduser'];
 $noteId = $_SESSION['noteId'];

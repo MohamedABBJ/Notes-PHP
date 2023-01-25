@@ -1,5 +1,5 @@
 <?php 
-include(__DIR__ . "/bootstrap.php");
+include(__DIR__ . "../../DB/dbConection.php");
 
 $username = $_REQUEST['username'] ?? null;
 $password = $_REQUEST['password'] ?? null;

@@ -22,7 +22,7 @@
             
             if($loginStatusData === 1){
                 echo "Welcome ". $loginNameData . " ";
-                 echo "<form action='./Components/php/logout.php' method='post'>
+                 echo "<form action='./Components/LogOut/logout.php' method='post'>
                 <input type='submit' value='Logout' name='logout'>
                 </form>";
         } else{
@@ -33,7 +33,7 @@
     </div> 
     <div class="div1">
         <h1>Notes App</h1>
-        <form action="./Components/php/usernotes.php" id="submitNote" method="post">
+        <form action="./Components/Notes/userNote.php" id="submitNote" method="post">
             <input id="noteTitle" name="noteTitle" type="text" placeholder="Input the title of your note">
             <input id="noteDescription" name="noteDescription" type="text" placeholder="Input the description of your note">
             <input type="submit" value="Submit">       
@@ -44,7 +44,7 @@
     <?php   
         $loginStatusData = $_SESSION['loginStatus'];
         if($loginStatusData === 1) {
-            include(__DIR__ . "./Components/php/bootstrap.php");
+            include(__DIR__ . "./Components/DB/dbConection.php");
             $idUser = $_SESSION['iduser'];
             $maxUserNotesId = $_SESSION['maxUserNotesId'];
             for ($i = 1; $i < $maxUserNotesId + 1; $i++){
@@ -58,7 +58,7 @@
                     $showNoteDescription = $showNotesData[1];
                     echo ("
                         <div>
-                        <form action='./Components/php/clickNote.php' id='submitNote' method='post'>
+                        <form action='./Components/Notes/clickNote.php' id='submitNote' method='post'>
                         <button class='Notebtn' type='submit' name='noteTitleValue' value='$i'>
                         <p> 
                         $showNoteTitle 

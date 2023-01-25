@@ -8,7 +8,7 @@
 </head>
 <body>
     <?php 
-    include(__DIR__ . "/bootstrap.php");
+    include(__DIR__ . "../../DB/dbConection.php");
     $noteId = $_POST['noteTitleValue'];
     session_start();
     $_SESSION['noteId'] = $noteId;
