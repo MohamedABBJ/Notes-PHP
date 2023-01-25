@@ -19,7 +19,7 @@
     <button onclick="goBack()">Cancel</button>
 
     <?php 
-    include(__DIR__ . "/bootstrap.php");
+    include(__DIR__ . "../../DB/dbConection.php");
     $newTitle = $_POST['newTitle'];
     $newDescription = $_POST['newDescription'];
     session_start();
