@@ -1,6 +1,3 @@
-let noteTitle, noteDescription;
-i = 0;
-
 btnClickLogIn = () => {
   location.href = "./Components/Login/login.html";
 };

@@ -81,24 +81,8 @@
     <h1>Notes</h1>
     <div class="notes" id="notes">
         </div>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-        <script src="index.js"></script>
-        <script text="javascript">
-            noteButtons = document.getElementsByClassName('Notebtn')
-    for (let i = 0; i < noteButtons.length; i++) {
-        noteButtons[i].onclick = function (e) {
-        var noteButtonTitleValue = 2
-        $.ajax({
-            url:"./Components/php/clickNote.php",
-            method:"POST",
-            dataType:'text',
-            data:{'noteButtonTitleValue' : noteButtonTitleValue},
-            success: function(data){
-                location.href = "./Components/php/clickNote.php"
-            }
-        })
+        <script src="../Frontend/Components/Index/index.js"></script>
     }
-        //Buscar notetitlevalue en la base de datos y poner los valores en clicknote para que aparezcan alla correctamente.
     }
     </script>
 </body>
