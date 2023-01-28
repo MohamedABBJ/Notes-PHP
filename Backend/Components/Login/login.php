@@ -6,7 +6,7 @@ $password = $_REQUEST['password'] ?? null;
 
 if(empty($username) && empty($password)){
 
-  echo("<script>alert('You cannot leave both inputs in blank!')</script>");
+  echo("<script>alert('You cannot leave both inputs in blank!!')</script>");
   header("refresh:0;url='../../../Frontend/Components/logIn/login.html");
 
 }else{
