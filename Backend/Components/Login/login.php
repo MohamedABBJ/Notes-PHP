@@ -4,7 +4,12 @@ include(__DIR__ . "../../DB/dbConection.php");
 $username = $_REQUEST['username'] ?? null;
 $password = $_REQUEST['password'] ?? null;
 
+if(empty($username) && empty($password)){
 
+  echo("<script>alert('You cannot leave both inputs in blank!')</script>");
+  header("refresh:0;url='../../../Frontend/Components/logIn/login.html");
+
+}else{
 $login = $db->prepare("SELECT username AND password FROM `notes-app`.`users` WHERE username = :username AND password = :password");
 $login->bindParam(':username', $username);
 $login->bindParam(':password', $password);
@@ -51,5 +56,5 @@ if($login->rowCount() > 0 && $username !== NULL && $password !== NULL){
 }else if(isset($username)){
   echo 'Username or password are incorrect!';
 }
-
+}
 ?>
