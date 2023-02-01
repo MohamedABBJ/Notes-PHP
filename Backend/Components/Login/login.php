@@ -6,19 +6,19 @@ $password = $_REQUEST['password'] ?? null;
 
 if(empty($username) && empty($password)){
 
-  echo("<script>alert('You cannot leave both inputs in blank!')</script>");
+  echo("<script>alert('You cannot leave both inputs in blank!!')</script>");
   header("refresh:0;url='../../../Frontend/Components/logIn/login.html");
 
 }else{
 $login = $db->prepare("SELECT username AND password FROM `notes-app`.`users` WHERE username = :username AND password = :password");
 $login->bindParam(':username', $username);
-$login->bindParam(':password', $password);
+$login->bindParam(':password', $hashPassword);
 $login->execute();
 
 
 $idUserQuery = $db -> prepare("SELECT idusers FROM `notes-app`.`users` WHERE username = :username AND password = :password");
 $idUserQuery->bindParam(':username', $username);
-$idUserQuery->bindParam(':password', $password);
+$idUserQuery->bindParam(':password', $hashPassword);
 $idUserQuery->execute();
 $idUser = $idUserQuery->fetchColumn();
 session_start();
@@ -29,15 +29,15 @@ print_r($idUser);
 if($login->rowCount() > 0 && $username !== NULL && $password !== NULL){
   $loggedIn = $db->prepare("UPDATE `notes-app`.`users` SET loggedstatus = 1 WHERE username = :username AND password = :password");
   $loggedIn->bindParam(':username', $username);
-  $loggedIn->bindParam(':password', $password);
+  $loggedIn->bindParam(':password', $hashPassword);
   $loggedIn->execute();
   $loginStatusQuery = $db -> prepare("SELECT loggedstatus FROM `notes-app`.`users` WHERE username = :username AND password = :password");
   $loginStatusQuery->bindParam(':username', $username);
-  $loginStatusQuery->bindParam(':password', $password);
+  $loginStatusQuery->bindParam(':password', $hashPassword);
   $loginStatusQuery->execute();
   $loginNameQuery = $db -> prepare("SELECT name FROM `notes-app`.`users` WHERE username = :username AND password = :password");
   $loginNameQuery->bindParam(':username', $username);
-  $loginNameQuery->bindParam(':password', $password);
+  $loginNameQuery->bindParam(':password', $hashPassword);
   $loginNameQuery->execute();
   $maxUserNotesIdQuery = $db->prepare("SELECT MAX(idnotesuser) AS maxUserNotesId FROM `notes-app`.`notesuser($idUser)`");
   $maxUserNotesIdQuery->execute();
@@ -47,7 +47,7 @@ if($login->rowCount() > 0 && $username !== NULL && $password !== NULL){
   $loginName = $loginNameQuery->fetchColumn(); 
   $_SESSION['maxUserNotesId'] = $maxUserNotesId;
   $_SESSION['username'] = $username;
-  $_SESSION['password'] = $password;
+  $_SESSION['password'] = $hashPassword;
   $_SESSION['loginStatus'] = $loginStatus;
   $_SESSION['loginName'] = $loginName;
   print_r($loginStatus);

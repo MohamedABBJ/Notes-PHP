@@ -7,13 +7,30 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="../../../Backend/Components/Register/register.php" method="post">
+    <form action="../../../Backend/Components/Register/register.php" method="post" onsubmit="return checkSubmit()">
         Name: <input type="text" name="name"> <br> <br>
         User: <input type="text" name="username"> <br> <br>
-        email: <input type="text" name="email"> <br> <br>
-        Password: <input type="text" name="password"> <br> <br>
-        Confirm Password: <input type="text" name="confirm_password"> <br> <br>
+        emaill: <input type="text" name="email"> <br> <br>
+        Password: <input id="password" type="text" name="password"> <br> <br>
+        Confirm Password: <input id="confirmPassword" type="text" name="confirm_password"> <br> <br>
         <input type="submit">
     </form>
+    
+    <script>
+        function checkSubmit() {
+            let password = document.getElementById('password').value
+            let confirmPassword = document.getElementById('confirmPassword').value
+
+            if(password.length < 6){
+                alert("password needs to have at least 6 characters");
+            }else{
+                if(password === confirmPassword){
+                    return true;
+                }else
+                    alert("passwords doesn't match");
+                    return false;
+            }
+            }
+    </script>
 </body>
 </html>
