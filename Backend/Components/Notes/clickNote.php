@@ -24,7 +24,6 @@
     $showNoteTitle
     <h2>Note description</h2>
     $showNoteDescription
-    //Hacer que la nota sea editada y puesta tanto en la base de datos como en la pagina.
     "
     );
     ?>
