@@ -9,38 +9,27 @@
 <body>
     <?php 
     include(__DIR__ . "../../DB/dbConection.php");
-    $noteId = $_POST['noteTitleValue'];
+    $noteId = $_POST['noteId'];
     session_start();
     $_SESSION['noteId'] = $noteId;
     $idUser = $_SESSION['iduser'];
     
-    $searchNote = $db -> prepare("SELECT notetitle, notedescription FROM `notes-app`.`notesuser($idUser)` WHERE idnotesuser = $noteId");
-    $searchNote->execute();
-    $showSearchedNote = $searchNote->fetch();
-    $showNoteTitle = $showSearchedNote[0];
-    $showNoteDescription = $showSearchedNote[1];
+    $searchNoteQuery = $db -> prepare("SELECT notetitle, notedescription FROM `notes-app`.`notesuser($idUser)` WHERE idnotesuser = $noteId");
+    $searchNoteQuery->execute();
+    $searchNote = $searchNoteQuery->fetch();
+    $noteTitle = $searchNote[0];
+    $noteDescription = $showSearchedNote[1];
     echo("
     <h1>Note Title</h1>
-    $showNoteTitle
+    $noteTitle
     <h2>Note description</h2>
-    $showNoteDescription
+    $noteDescription
     "
     );
     ?>
     <button onclick="editTask()">Edit Task</button>
     <button onclick="deleteTask()">Delete Task</button>
 
-
-    <script text="javascript">
-        let editTask = () =>{
-            location.href = "./editNote.php"
-        }
-        let deleteTask = () =>{
-            deleteTaskOption = window.confirm("Are you sure that you want to delete this task?");
-            if(deleteTaskOption){
-                location.href = "./deleteNote.php"
-            }
-        }
-    </script>
+    <script src="../../../Frontend/Notes/clickNote/clickNote.js"></script>
 </body>
 </html>
