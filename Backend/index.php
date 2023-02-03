@@ -11,37 +11,38 @@
     <div>
             <?php 
             session_start();
-            $maxUserNotesId = $_SESSION['maxUserNotesId'];
-            $loginStatusData = $_SESSION['loginStatus'];
-            $loginNameData = $_SESSION['loginName'];
-            print_r($loginStatusData);
-
+            $maxUserNotesId = $_SESSION['maxUserNotesId'] ?? NULL;
+            $loginStatusData = $_SESSION['loginStatus'] ?? NULL;
+            $loginNameData = $_SESSION['loginName'] ?? NULL;
             
-            if($loginStatusData === 1){
-                echo "Welcome ". $loginNameData . " ";
-                 echo "<form action='./Components/LogOut/logout.php' method='post'>
-                <input type='submit' value='Logout' name='logout'>
-                </form> 
-                <div class='div1'>
-                <h1>Notes App</h1>
-                <form action='./Components/Notes/userNote.php' id='submitNote' method='post'>
-                    <input id='noteTitle' name='noteTitle' type='text' placeholder='Input the title of your note'>
-                    <input id='noteDescription' name='noteDescription' type='text' placeholder='Input the description of your note'>
-                    <input type='submit' value='Submit'>       
-            </form>
-            <h1>Notes</h1>
-            </div>";
-        } else{
+            
+                if($loginStatusData === 1){
+                    echo "Welcome ". $loginNameData . " ";
+                     echo "<form action='./Components/LogOut/logout.php' method='post'>
+                    <input type='submit' value='Logout' name='logout'>
+                    </form> 
+                    <div class='div1'>
+                    <h1>Notes App</h1>
+                    <form action='./Components/Notes/userNote.php' id='submitNote' method='post'>
+                        <input id='noteTitle' name='noteTitle' type='text' placeholder='Input the title of your note'>
+                        <input id='noteDescription' name='noteDescription' type='text' placeholder='Input the description of your note'>
+                        <input type='submit' value='Submit'>       
+                </form>
+                <h1>Notes</h1>
+                </div>";
+            }
+         else{
                 echo "
                 <button onclick='btnClickLogIn()'>Login</button>
                 <h1>You have to log in first!</h1>";
         }
+            
 
             ?>
     </div> 
     <div class="Notes">
     <?php   
-        $loginStatusData = $_SESSION['loginStatus'];
+        $loginStatusData = $_SESSION['loginStatus'] ?? NULL;
         if($loginStatusData === 1) {
             include(__DIR__ . "./Components/DB/dbConection.php");
             $idUser = $_SESSION['iduser'];

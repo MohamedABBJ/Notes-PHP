@@ -1,10 +1,13 @@
 <?php 
 header('Content-type: text/css; charset:UTF-8')
 ?>
+body{
+    background-color: #c5ffde;
+}
 
 .Notes .Notebtn{
-    width:500px;
-    height:120px;
+    width:250px;
+    height:140px;
 }
 .Notes{
     justify-content: center;
