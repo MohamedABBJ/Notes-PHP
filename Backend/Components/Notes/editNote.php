@@ -77,11 +77,6 @@
         echo("<script>alert('You cannot leave both inputs in blank!, if you do not want to edit the note then click cancel')</script>");
     }
     ?>    
-
-    <script text="javascript">
-        let goBack = () =>{
-            location.href = "../../index.php"
-        }
-    </script>
+    <script src="../../../Frontend/Notes/userNote/editNote.js"></script>
 </body>
 </html>

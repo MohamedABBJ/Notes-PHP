@@ -1,8 +1,8 @@
 <?php 
 include(__DIR__ . "../../DB/dbConection.php");
 
-$username = $_REQUEST['username'] ?? null;
-$password = $_REQUEST['password'] ?? null;
+$username = $_REQUEST['username'] ?? NULL;
+$password = $_REQUEST['password'] ?? NULL;
 
 if(empty($username) && empty($password)){
 
@@ -23,7 +23,6 @@ $idUserQuery->execute();
 $idUser = $idUserQuery->fetchColumn();
 session_start();
 $_SESSION['iduser'] = $idUser;
-print_r($idUser);
 
 
 if($login->rowCount() > 0 && $username !== NULL && $password !== NULL){
@@ -31,14 +30,17 @@ if($login->rowCount() > 0 && $username !== NULL && $password !== NULL){
   $loggedIn->bindParam(':username', $username);
   $loggedIn->bindParam(':password', $password);
   $loggedIn->execute();
+
   $loginStatusQuery = $db -> prepare("SELECT loggedstatus FROM `notes-app`.`users` WHERE username = :username AND password = :password");
   $loginStatusQuery->bindParam(':username', $username);
   $loginStatusQuery->bindParam(':password', $password);
   $loginStatusQuery->execute();
+
   $loginNameQuery = $db -> prepare("SELECT name FROM `notes-app`.`users` WHERE username = :username AND password = :password");
   $loginNameQuery->bindParam(':username', $username);
   $loginNameQuery->bindParam(':password', $password);
   $loginNameQuery->execute();
+
   $maxUserNotesIdQuery = $db->prepare("SELECT MAX(idnotesuser) AS maxUserNotesId FROM `notes-app`.`notesuser($idUser)`");
   $maxUserNotesIdQuery->execute();
   $maxUserNotesIdQuery = $maxUserNotesIdQuery->fetch(PDO::FETCH_ASSOC);
