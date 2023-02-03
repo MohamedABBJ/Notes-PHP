@@ -20,11 +20,11 @@
 
     <?php 
     include(__DIR__ . "../../DB/dbConection.php");
-    $newTitle = $_POST['newTitle'];
-    $newDescription = $_POST['newDescription'];
+    $newTitle = $_POST['newTitle'] ?? NULL;
+    $newDescription = $_POST['newDescription'] ?? NULL;
     session_start();
-    $idUser = $_SESSION['iduser'];
-    $noteId = $_SESSION['noteId'];
+    $idUser = $_SESSION['iduser'] ?? NULL;
+    $noteId = $_SESSION['noteId'] ?? NULL;
     
     //Editing both
     if(!empty($newDescription) && !empty($newTitle)){
@@ -54,7 +54,7 @@
             echo("Wait a moment, redirecting...");
             header("refresh:2;url='../../index.php");
         }
-    else{
+    else if(isset($newDescription) && isset($newTitle) && empty($newDescription) && empty($newTitle)){
         echo("<script>alert('You cannot leave both inputs in blank!, if you do not want to edit the note then click cancel')</script>");
     }
     ?>    
