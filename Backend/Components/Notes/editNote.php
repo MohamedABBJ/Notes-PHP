@@ -16,7 +16,7 @@
         <button type="submit">Edit Note</button>
     </form>
     <br>
-    <button onclick="goBack()">Cancel</button>
+    <button onclick="cancel()">Cancel</button>
 
     <?php 
     include(__DIR__ . "../../DB/dbConection.php");
@@ -38,10 +38,10 @@
 
     //Editing both
     if(!empty($newDescription) && !empty($newTitle)){
-        $editNote = $db -> prepare("UPDATE `notes-app`.`notesuser($idUser)` SET `notetitle` = :noteTitle, `notedescription` = :noteDescription  WHERE idnotesuser = $noteId");
-        $editNote->bindParam(':noteTitle', $newTitle);
-        $editNote->bindParam(':noteDescription', $newDescription);
-        $editNote->execute();
+        $editNoteDescriptionQuery = $db -> prepare("UPDATE `notes-app`.`notesuser($idUser)` SET `notetitle` = :noteTitle, `notedescription` = :noteDescription  WHERE idnotesuser = $noteId");
+        $editNoteDescriptionQuery->bindParam(':noteTitle', $newTitle);
+        $editNoteDescriptionQuery->bindParam(':noteDescription', $newDescription);
+        $editNoteDescriptionQuery->execute();
         echo("<script>
         disableInputs();
         </script>");
@@ -51,9 +51,9 @@
     }
     //Editing noteTitle
     else if(empty($newDescription) && !empty($newTitle)){
-            $editNote = $db -> prepare("UPDATE `notes-app`.`notesuser($idUser)` SET `notetitle` = :noteTitle  WHERE idnotesuser = $noteId");
-            $editNote->bindParam(':noteTitle', $newTitle);
-            $editNote->execute();
+            $editNoteQuery = $db -> prepare("UPDATE `notes-app`.`notesuser($idUser)` SET `notetitle` = :noteTitle  WHERE idnotesuser = $noteId");
+            $editNoteQuery->bindParam(':noteTitle', $newTitle);
+            $editNoteQuery->execute();
             echo("<script>
             disableInputs();
             </script>");
@@ -63,9 +63,9 @@
         }
         //Editing noteDescription
     else if(!empty($newDescription) && empty($newTitle)){
-            $editNote = $db -> prepare("UPDATE `notes-app`.`notesuser($idUser)` SET `notedescription` = :noteDescription  WHERE idnotesuser = $noteId");
-            $editNote->bindParam(':noteDescription', $newDescription);
-            $editNote->execute();
+            $editDescriptionQuery = $db -> prepare("UPDATE `notes-app`.`notesuser($idUser)` SET `notedescription` = :noteDescription  WHERE idnotesuser = $noteId");
+            $editDescriptionQuery->bindParam(':noteDescription', $newDescription);
+            $editDescriptionQuery->execute();
             echo("<script>
             disableInputs();
             </script>");

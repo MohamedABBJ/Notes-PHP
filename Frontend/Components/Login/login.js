@@ -1,4 +1,4 @@
-btn_Register = () => {
+btnRegister = () => {
     location.href = '../Register/register.html'
 }
 

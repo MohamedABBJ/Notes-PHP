@@ -9,21 +9,21 @@
 <body>
     <?php 
     include(__DIR__ . "../../DB/dbConection.php");
-    $noteId = $_POST['noteTitleValue'];
+    $noteId = $_POST['noteId'];
     session_start();
     $_SESSION['noteId'] = $noteId;
     $idUser = $_SESSION['iduser'];
     
-    $searchNote = $db -> prepare("SELECT notetitle, notedescription FROM `notes-app`.`notesuser($idUser)` WHERE idnotesuser = $noteId");
-    $searchNote->execute();
-    $showSearchedNote = $searchNote->fetch();
-    $showNoteTitle = $showSearchedNote[0];
-    $showNoteDescription = $showSearchedNote[1];
+    $searchNoteQuery = $db -> prepare("SELECT notetitle, notedescription FROM `notes-app`.`notesuser($idUser)` WHERE idnotesuser = $noteId");
+    $searchNoteQuery->execute();
+    $searchNote = $searchNoteQuery->fetch();
+    $noteTitle = $searchNote[0];
+    $noteDescription = $showSearchedNote[1];
     echo("
     <h1>Note Title</h1>
-    $showNoteTitle
+    $noteTitle
     <h2>Note description</h2>
-    $showNoteDescription
+    $noteDescription
     "
     );
     ?>

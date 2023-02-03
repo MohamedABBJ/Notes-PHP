@@ -10,10 +10,10 @@ if(empty($username) && empty($password)){
   header("refresh:0;url='../../../Frontend/Components/logIn/login.html");
 
 }else{
-$login = $db->prepare("SELECT username AND password FROM `notes-app`.`users` WHERE username = :username AND password = :password");
-$login->bindParam(':username', $username);
-$login->bindParam(':password', $password);
-$login->execute();
+$loginQuery = $db->prepare("SELECT username AND password FROM `notes-app`.`users` WHERE username = :username AND password = :password");
+$loginQuery->bindParam(':username', $username);
+$loginQuery->bindParam(':password', $password);
+$loginQuery->execute();
 
 
 $idUserQuery = $db -> prepare("SELECT idusers FROM `notes-app`.`users` WHERE username = :username AND password = :password");
@@ -26,10 +26,10 @@ $_SESSION['iduser'] = $idUser;
 
 
 if($login->rowCount() > 0 && $username !== NULL && $password !== NULL){
-  $loggedIn = $db->prepare("UPDATE `notes-app`.`users` SET loggedstatus = 1 WHERE username = :username AND password = :password");
-  $loggedIn->bindParam(':username', $username);
-  $loggedIn->bindParam(':password', $password);
-  $loggedIn->execute();
+  $loggedInQuery = $db->prepare("UPDATE `notes-app`.`users` SET loggedstatus = 1 WHERE username = :username AND password = :password");
+  $loggedInQuery->bindParam(':username', $username);
+  $loggedInQuery->bindParam(':password', $password);
+  $loggedInQuery->execute();
 
   $loginStatusQuery = $db -> prepare("SELECT loggedstatus FROM `notes-app`.`users` WHERE username = :username AND password = :password");
   $loginStatusQuery->bindParam(':username', $username);
@@ -45,6 +45,7 @@ if($login->rowCount() > 0 && $username !== NULL && $password !== NULL){
   $maxUserNotesIdQuery->execute();
   $maxUserNotesIdQuery = $maxUserNotesIdQuery->fetch(PDO::FETCH_ASSOC);
   $maxUserNotesId = $maxUserNotesIdQuery['maxUserNotesId'];
+
   $loginStatus = $loginStatusQuery->fetchColumn();
   $loginName = $loginNameQuery->fetchColumn(); 
   $_SESSION['maxUserNotesId'] = $maxUserNotesId;
@@ -52,9 +53,10 @@ if($login->rowCount() > 0 && $username !== NULL && $password !== NULL){
   $_SESSION['password'] = $password;
   $_SESSION['loginStatus'] = $loginStatus;
   $_SESSION['loginName'] = $loginName;
-  print_r($loginStatus);
+
   echo 'You have been loged to the system welcome!';
   header("refresh:2;url='../../index.php");
+  
 }else if(isset($username)){
   echo 'Username or password are incorrect!';
 }

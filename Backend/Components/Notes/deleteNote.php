@@ -4,9 +4,9 @@ session_start();
 $idUser = $_SESSION['iduser'];
 $noteId = $_SESSION['noteId'];
 
-$deleteNote = $db->exec("DELETE FROM `notes-app`.`notesuser($idUser)` WHERE (`idnotesuser` = '$noteId')");
+$deleteNoteQuery = $db->exec("DELETE FROM `notes-app`.`notesuser($idUser)` WHERE (`idnotesuser` = '$noteId')");
 
-if(isset($deleteNote)){
+if(isset($deleteNoteQuery)){
     echo("The note has been deleted!");
     echo("Redirecting...");
     header("refresh:2;url='../../index.php");
