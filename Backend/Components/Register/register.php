@@ -6,6 +6,8 @@
     $password = $_REQUEST['password'];
     $confirm_password = $_REQUEST['confirm_password'];
 
+    $hashPassword = password_hash($password, PASSWORD_DEFAULT);
+    $hashConfirmPassword = password_hash($confirm_password, PASSWORD_DEFAULT);
 
     $checkUserQuery = $db -> prepare("SELECT username FROM `notes-app`.`users` WHERE username = :username");
     $checkUserQuery->bindParam(':username', $username);
@@ -27,11 +29,11 @@
     }else{
 
     $registerUserQuery = $db->exec("INSERT INTO `notes-app`.`users` (`name`, `username`, `password`, `confirm_password`, `email`)
-     VALUES ('$name','$username','$password','$confirm_password','$email')");
+     VALUES ('$name','$username','$hashPassword','$hashConfirmPassword','$email')");
     
     $idUserQuery = $db -> prepare("SELECT idusers FROM `notes-app`.`users` WHERE username = :username AND password = :password");
     $idUserQuery->bindParam(':username', $username);
-    $idUserQuery->bindParam(':password', $password);
+    $idUserQuery->bindParam(':password', $hashPassword);
     $idUserQuery->execute();
     $idUser = $idUserQuery->fetchColumn();
 
@@ -44,7 +46,7 @@
     $userTable = $createUserTableQuery->execute();
 
 
-     if($registerUserQuery && isset($userTable)){
+     if(isset($registerUserQuery) && isset($userTable)){
         echo "The register has been completed sucessfully! <br> <br>";
         echo "<button onclick='btn_Register()'>Go back to login</button>";
         echo " <script>
