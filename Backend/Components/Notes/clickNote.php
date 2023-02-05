@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../../Global/globalStyle.php">
 </head>
 <body>
     <?php 
@@ -18,7 +19,7 @@
     $searchNoteQuery->execute();
     $searchNote = $searchNoteQuery->fetch();
     $noteTitle = $searchNote[0];
-    $noteDescription = $showSearchedNote[1];
+    $noteDescription = $searchNote[1];
     echo("
     <h1>Note Title</h1>
     $noteTitle
