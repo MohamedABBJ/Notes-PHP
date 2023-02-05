@@ -1,6 +1,8 @@
 <?php 
 header('Content-type: text/css; charset:UTF-8')
 ?>
-body{
-    background-color: #c5ffde;
+*{
+    margin:0;
+    padding:0;
 }
+

@@ -1,3 +1,9 @@
+html{
+    height:100vh;
+}
 body{
     background-color: #c5ffde;
+    height:100%;
+    margin:0px;
+
 }

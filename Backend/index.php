@@ -9,8 +9,8 @@
     <link rel="stylesheet" type="text/css" href="style.php">
 </head>
 <body>
-    <div>
-            <?php 
+    <div class="TopBarContent">
+    <?php 
             session_start();
             $maxUserNotesId = $_SESSION['maxUserNotesId'] ?? NULL;
             $loginStatus = $_SESSION['loginStatus'] ?? NULL;
@@ -18,30 +18,58 @@
             
             
                 if($loginStatus === 1){
-                    echo "Welcome ". $loginName . " ";
-                     echo "<form action='./Components/LogOut/logout.php' method='post'>
+                    echo "
+                    Welcome ". $loginName . "";
+            }
+         else{
+                echo "
+                <button onclick='btnClickLogIn()'>Login</button>";
+        }
+            
+
+            ?>
+    </div>
+    <div class='LeftBarContent'>
+    <?php     
+                if($loginStatus === 1){
+                    echo "
+                    <h1>Notes</h1>
+                    $loginName 
+                    <form action='./Components/LogOut/logout.php' method='post'>
                     <input type='submit' value='Logout' name='logout'>
-                    </form> 
-                    <div class='div1'>
-                    <h1>Notes App</h1>
+                    </form> ";
+            }
+         else{
+                echo "
+                <button onclick='btnClickLogIn()'>Login</button>";
+        }
+
+            ?>
+    </div>
+<div class="GeneralContent">
+    <div class='Content'>
+            <?php 
+            
+                if($loginStatus === 1){
+                    echo "
                     <form action='./Components/Notes/userNote.php' id='submitNote' method='post'>
                         <input id='noteTitle' name='noteTitle' type='text' placeholder='Input the title of your note'>
                         <input id='noteDescription' name='noteDescription' type='text' placeholder='Input the description of your note'>
                         <input type='submit' value='Submit'>       
-                </form>
-                <h1>Notes</h1>
-                </div>";
+                    </form>
+                    <h1>My notes</h1>";
             }
          else{
                 echo "
-                <button onclick='btnClickLogIn()'>Login</button>
                 <h1>You have to log in first!</h1>";
         }
             
 
             ?>
     </div> 
-    <div class="Notes">
+    <div class="Content">
+        <div class="Notes">
+
     <?php   
         $loginStatus = $_SESSION['loginStatus'] ?? NULL;
         if($loginStatus === 1) {
@@ -58,7 +86,7 @@
                     $showNoteTitle = $showNotesData[0];
                     $showNoteDescription = $showNotesData[1];
                     echo "
-                        <div>
+                        <div class='content'>
                         <form action='./Components/Notes/clickNote.php' id='submitNote' method='post'>
                         <button class='Notebtn' type='submit' name='noteId' value='$i'>
                         <p> 
@@ -69,7 +97,7 @@
                         </p>
                         </button>
                         </form>
-                        </div>";
+                        </div>"; 
 
             }
             
@@ -78,6 +106,8 @@
                     
     ?>
         </div>
+    </div>
+</div>
         <script src="../Frontend/Components/Index/index.js"></script>
     </script>
 </body>
