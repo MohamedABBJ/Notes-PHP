@@ -33,11 +33,16 @@
     <?php     
                 if($loginStatus === 1){
                     echo "
+                    <div class='LeftBarContent_NotesMark'>
                     <h1>Notes</h1>
-                    $loginName 
+                    </div>
                     <form action='./Components/LogOut/logout.php' method='post'>
                     <input type='submit' value='Logout' name='logout'>
-                    </form> ";
+                    </form>";
+                    echo 
+                    "<div class='LeftBarContent_Username'>
+                    Hello $loginName  
+                    </div>";
             }
          else{
                 echo "
@@ -110,6 +115,8 @@
 </div>
         <script src="../Frontend/Components/Index/index.js"></script>
     </script>
+    //Next thing to do is to do the left bar style
+
 </body>
 
 </html>

@@ -43,3 +43,12 @@ header('Content-type: text/css; charset:UTF-8')
     height:100vh;
     border:solid black; 
 }
+.LeftBarContent .LeftBarContent_Username{
+    position:absolute;
+    bottom:20px;
+    left:30%;
+}
+.LeftBarContent .LeftBarContent_NotesMark{
+    position:absolute;
+    padding:7%;
+}
