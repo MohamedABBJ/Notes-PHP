@@ -34,7 +34,7 @@
                 if($loginStatus === 1){
                     echo "
                     <div class='LeftBarContent_NotesMark'>
-                    <h1>Notes</h1>
+                    <h1>N</h1><h1>OTES</h1>
                     </div>
                     <form action='./Components/LogOut/logout.php' method='post'>
                     <input type='submit' value='Logout' name='logout'>
@@ -115,7 +115,6 @@
 </div>
         <script src="../Frontend/Components/Index/index.js"></script>
     </script>
-    //Next thing to do is to do the left bar style
 
 </body>
 
