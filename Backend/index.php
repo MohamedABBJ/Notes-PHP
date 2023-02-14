@@ -66,27 +66,31 @@
 
             ?>
     </div>
-<div class="GeneralContent">
-    <div class='Content'>
+<div class="NotesContent">
+    <div class="CreateNoteContent">
             <?php 
             
                 if($loginStatus === 1){
                     echo "
+                    <div class='CreateNoteContent_PlusSign'>
+                    <h2>+</h2>
+                    </div>
+                    <h1 class='CreateNoteContent_MyNotes'>My notes</h1>
                     <form action='./Components/Notes/userNote.php' id='submitNote' method='post'>
                         <input id='noteTitle' name='noteTitle' type='text' placeholder='Input the title of your note'>
                         <input id='noteDescription' name='noteDescription' type='text' placeholder='Input the description of your note'>
                         <input type='submit' value='Submit'>       
                     </form>
-                    <h1>My notes</h1>";
+                    ";
             }
          else{
                 echo "
                 <h1>You have to log in first!</h1>";
         }
-            
+            //Next thing to do is to order the notes and do to the right side of creating Note
 
-            ?>
-    </div> 
+        ?>
+    </div>
     <div class="Content">
         <div class="Notes">
     <?php   

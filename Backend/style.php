@@ -18,7 +18,7 @@ header('Content-type: text/css; charset:UTF-8')
     padding: 15px;
 }
 
-.GeneralContent{
+.NotesContent{
     position:relative;
     margin-top:-69.5vh;
     margin-left:18.2%;
@@ -116,3 +116,26 @@ header('Content-type: text/css; charset:UTF-8')
     margin-right:80%;
 }
 
+.NotesContent .CreateNoteContent{
+    position:absolute;
+    border-radius:20px;
+    background-color:#f2edd3;
+    width:25%;
+    height:75vh;
+    right:20px;
+    top:-55px;
+}
+
+.NotesContent .CreateNoteContent .CreateNoteContent_PlusSign{
+    border:solid black;
+    border-radius:900px;
+    width:20px;
+
+}
+.NotesContent .CreateNoteContent .CreateNoteContent_PlusSign > h2{
+    font-size:20px;
+    margin-left:3px;
+}
+.NotesContent .CreateNoteContent{
+    color:red;
+}
