@@ -34,14 +34,23 @@
                 if($loginStatus === 1){
                     echo "
                     <div class='LeftBarContent_NotesMark'>
-                    <h1>N</h1><h1>OTES</h1>
+                    <img src='../Assets/Index/Logo.png' alt='' srcset=''>
                     </div>
+                    <div class='LeftBarContent_LogoutButton'>
                     <form action='./Components/LogOut/logout.php' method='post'>
                     <input type='submit' value='Logout' name='logout'>
-                    </form>";
+                    </div>
+                    </form>
+                    <div class='LeftBarContent_Buttons'>
+                    <button>
+                    <p>Home</p>
+                    <img src='../Assets/Index/HomeIcon.png' alt='' srcset=''>
+                    </button>
+                    </div>"
+                    ;
                     echo 
                     "<div class='LeftBarContent_Username'>
-                    Hello $loginName  
+                    Hello, $loginName  
                     </div>";
             }
          else{
@@ -74,7 +83,6 @@
     </div> 
     <div class="Content">
         <div class="Notes">
-
     <?php   
         $loginStatus = $_SESSION['loginStatus'] ?? NULL;
         if($loginStatus === 1) {
