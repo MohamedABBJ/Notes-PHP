@@ -18,8 +18,14 @@
             
             
                 if($loginStatus === 1){
+                
                     echo "
-                    Welcome ". $loginName . "";
+                    <div class='TopBarContent_WelcomeMessage'>
+                    Welcome, ". $loginName . "!"."
+                    </div>
+                    "
+                    
+                    ;
             }
          else{
                 echo "

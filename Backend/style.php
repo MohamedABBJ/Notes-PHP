@@ -34,6 +34,13 @@ header('Content-type: text/css; charset:UTF-8')
     height:30vh;
     margin-top:-0.2vh;
     margin-left:18.2%;
+    background: url("../Assets/Index/UserBackground.png");
+}
+.TopBarContent .TopBarContent_WelcomeMessage{
+    font-size:40px;
+    margin-top:11%;
+    margin-left:3%;
+    color:white;
 }
 
 .LeftBarContent{
