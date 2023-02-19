@@ -75,11 +75,15 @@
                     <div class='CreateNoteContent_PlusSign'>
                     <h2>+</h2>
                     </div>
-                    <h1 class='CreateNoteContent_MyNotes'>My notes</h1>
+                    <div class = 'CreateNoteContent_MyNotes'>
+                    <h2>New Note</h1>
+                    </div>
                     <form action='./Components/Notes/userNote.php' id='submitNote' method='post'>
-                        <input id='noteTitle' name='noteTitle' type='text' placeholder='Input the title of your note'>
-                        <input id='noteDescription' name='noteDescription' type='text' placeholder='Input the description of your note'>
-                        <input type='submit' value='Submit'>       
+                    <div class='NewNoteInputs'>
+                        <input maxlength='20' class='NoteTitle' id='noteTitle' name='noteTitle' type='text' placeholder='Title'>
+                        <textarea rows='6' maxlength='124' class='NoteDescription'id='noteDescription' name='noteDescription' type='text' placeholder='Enter Details'></textarea>
+                    </div>  
+                        <input class='AddNoteBtn' type='submit' value='Add New Note'>       
                     </form>
                     ";
             }
@@ -87,7 +91,7 @@
                 echo "
                 <h1>You have to log in first!</h1>";
         }
-            //Next thing to do is to order the notes and do to the right side of creating Note
+            
 
         ?>
     </div>

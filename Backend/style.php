@@ -127,15 +127,63 @@ header('Content-type: text/css; charset:UTF-8')
 }
 
 .NotesContent .CreateNoteContent .CreateNoteContent_PlusSign{
-    border:solid black;
+    border:solid #004c42;
     border-radius:900px;
-    width:20px;
-
+    width:16px;
+    margin-top:10px;
+    margin-left:12px;
 }
 .NotesContent .CreateNoteContent .CreateNoteContent_PlusSign > h2{
+    font-size:16px;
+    margin-left:3.5px;
+    color:#004c42;
+}
+.NotesContent .CreateNoteContent .CreateNoteContent_MyNotes > h2{
+    position:relative;
     font-size:20px;
-    margin-left:3px;
+    left:40px;
+    top:-22px;
+    width:120px;
 }
-.NotesContent .CreateNoteContent{
-    color:red;
+.NotesContent .CreateNoteContent .NewNoteInputs input,textarea{
+    background-color:transparent;
+    border:none;
+    font-size:20px;
+    margin-left:15px;
+    width:240px;
 }
+.NotesContent .CreateNoteContent .NewNoteInputs input{
+    border-bottom:solid rgba(0, 0, 0, .1);
+}
+.NotesContent .CreateNoteContent .NewNoteInputs input::placeholder,textarea::placeholder{
+    color:rgba(0, 0, 0, .5);
+}
+.NotesContent .CreateNoteContent .NewNoteInputs > textarea{
+    background: url("../Assets/Index/MyNotesDescriptionLines.png");
+    background-repeat:no-repeat;
+    background-position:0px 35px;
+    resize:none;
+    overflow:hidden;
+    line-height:7vh;
+    margin-top:20px;
+}
+
+.NotesContent .CreateNoteContent .AddNoteBtn{
+    position:relative;
+    background-color:#FE5300;
+    border:none;
+    border-radius:10px;
+    bottom:-50px;
+    left:30px;
+    width:210px;
+    height:6vh;
+    color:white;
+}
+.NotesContent .CreateNoteContent .AddNoteBtn:hover{
+    background-color:#db4800;
+}
+.NotesContent .CreateNoteContent .AddNoteBtn:active{
+    background-color:#b83c00;
+}
+
+
