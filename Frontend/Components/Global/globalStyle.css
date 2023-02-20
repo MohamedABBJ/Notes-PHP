@@ -1,4 +1,5 @@
 html{
+    font-family: Kanit;
     height:100vh;
     width:1200px;
 }
@@ -6,5 +7,4 @@ body{
     background-color: #c5ffde;
     height:100%;
     margin:0px;
-    
 }   

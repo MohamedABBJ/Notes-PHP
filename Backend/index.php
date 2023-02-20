@@ -124,7 +124,7 @@
                         <p class='NoteTitle'>
                          $showNoteTitle
                         </p>
-                        <textarea class='NoteDescription' name='' id='' cols='20' rows='4'>
+                        <textarea class='NoteDescription' name='' id='' cols='20' rows='4' disabled>
                         $showNoteDescriptionLongPreview 
                         </textarea>
                         </button>
@@ -141,7 +141,7 @@
                             <p class='NoteTitle'>
                             $showNoteTitle
                             </p>
-                            <textarea class='NoteDescription' name='' id='' cols='20' rows='4'>
+                            <textarea class='NoteDescription' name='' id='' cols='20' rows='4' disabled>
                             $showNoteDescription 
                             </textarea>
                             </button>
@@ -156,7 +156,6 @@
     ?>
         </div>
     </div>
-    
 </div>
         <script src="../Frontend/Components/Index/index.js"></script>
     </script>

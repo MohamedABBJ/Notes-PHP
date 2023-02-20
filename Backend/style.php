@@ -8,15 +8,25 @@ header('Content-type: text/css; charset:UTF-8')
     background-repeat:no-repeat;
     border:none;
 }
+.Content .Notes .Notebtn:hover{
+    background:url("../Assets/Index/NoteBackgroundHover.png");
+}
+.Content .Notes .Notebtn:active{
+    background:url("../Assets/Index/NoteBackgroundActive.png");
+}
 .Content .Notes .Notebtn .NoteTitle{
     text-align:left;
     margin:-30px 0px 0px 10px;
+    font-weight:bold;
+    font-size:20px;
 }
 .Content .Notes .Notebtn .NoteDescription{
     margin:-10px 0px 0px 0px;
     width:80%;
     resize:none;
     overflow:hidden;
+    border:none;
+    outline:none;
 }
 
 .Content .Notes{
