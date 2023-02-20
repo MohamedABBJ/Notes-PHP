@@ -50,7 +50,7 @@
                     <div class='LeftBarContent_Buttons'>
                     <button>
                     <p>Home</p>
-                    <img src='../Assets/Index/HomeIcon.png' alt='' srcset=''>
+                    <img src='../Assets/Global/HomeIcon.png' alt='' srcset=''>
                     </button>
                     </div>"
                     ;
@@ -116,7 +116,7 @@
                         $showNoteDescriptionLongTruncate = substr($showNoteDescription,0,40);
                         $showNoteDescriptionLongTruncateLength = strlen($showNoteDescriptionLongTruncate) + 3;
                         $showNoteDescriptionLongPreview = str_pad($showNoteDescriptionLongTruncate,$showNoteDescriptionLongTruncateLength,"...",STR_PAD_RIGHT);
-                        
+
                         echo("
                         <div class='NoteBtnContents'>
                         <form action='./Components/Notes/clickNote.php' id='submitNote' method='post'>

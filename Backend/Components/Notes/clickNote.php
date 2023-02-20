@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="../../Global/globalStyle.php">
-    <link rel="stylesheet" type="text/css" href="../../style.php">
+
+    <link rel="stylesheet" type="text/css" href="../../Styles/Notes/clickNoteStyle.php">
 </head>
 
 <body>
@@ -63,9 +64,7 @@
 
         ?>
     </div>
-    <div class="NotesContent">
-        <div class="Content">
-            <div class="Notes">
+    <div class="Content">
                 <?php
                 include(__DIR__ . "../../DB/dbConection.php");
                 $noteId = $_POST['noteId'];
@@ -78,20 +77,23 @@
                 $noteTitle = $searchNote[0];
                 $noteDescription = $searchNote[1];
                 echo ("
-                <h1>Note Title</h1>
-                $noteTitle
+                <div>
+                <h2>Note Title</h2>
+                <h1>$noteTitle</h1>
                 <h2>Note description</h2>
-                $noteDescription
-                    "
+                <textarea name='' id='' cols='30' rows='10' disabled>$noteDescription</textarea>  
+                </div>
+                "
                 );
                 ?>
-                <button onclick="editTask()">Edit Task</button>
-                <button onclick="deleteTask()">Delete Task</button>
-            </div>
+                <div>
+                    <button onclick="editTask()">Edit Note</button>
+                    <button onclick="deleteTask()">Delete Note</button>
+                </div>
         </div>
-    </div>
-    <script src="../Frontend/Components/Index/index.js"></script>
-    <script src="../../../Frontend/Notes/clickNote/clickNote.js"></script>
+        
+        <script src="../Frontend/Components/Index/index.js"></script>
+        <script src="../../../Frontend/Notes/clickNote/clickNote.js"></script>
     </script>
 
 </body>
