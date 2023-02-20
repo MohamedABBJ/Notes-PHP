@@ -112,21 +112,43 @@
                 if(!empty($showNotesData)){
                     $showNoteTitle = $showNotesData[0];
                     $showNoteDescription = $showNotesData[1];
-                    echo "
-                        <div class='content'>
+                    if(strlen($showNoteDescription) > 40){
+                        $showNoteDescriptionLongTruncate = substr($showNoteDescription,0,40);
+                        $showNoteDescriptionLongTruncateLength = strlen($showNoteDescriptionLongTruncate) + 3;
+                        $showNoteDescriptionLongPreview = str_pad($showNoteDescriptionLongTruncate,$showNoteDescriptionLongTruncateLength,"...",STR_PAD_RIGHT);
+                        
+                        echo("
+                        <div class='NoteBtnContents'>
                         <form action='./Components/Notes/clickNote.php' id='submitNote' method='post'>
                         <button class='Notebtn' type='submit' name='noteId' value='$i'>
-                        <p> 
-                        $showNoteTitle 
+                        <p class='NoteTitle'>
+                         $showNoteTitle
                         </p>
-                        <p> 
-                        $showNoteDescription
-                        </p>
+                        <textarea class='NoteDescription' name='' id='' cols='20' rows='4'>
+                        $showNoteDescriptionLongPreview 
+                        </textarea>
                         </button>
                         </form>
-                        </div>"; 
+                        </div>
+                        ");
 
-            }
+                    }
+                    else{
+                        echo "
+                            <div class='NoteBtnContents'>
+                            <form action='./Components/Notes/clickNote.php' id='submitNote' method='post'>
+                            <button class='Notebtn' type='submit' name='noteId' value='$i'>
+                            <p class='NoteTitle'>
+                            $showNoteTitle
+                            </p>
+                            <textarea class='NoteDescription' name='' id='' cols='20' rows='4'>
+                            $showNoteDescription 
+                            </textarea>
+                            </button>
+                            </form>
+                            </div>"; 
+                }
+                    }
             
         }
     }
@@ -134,6 +156,7 @@
     ?>
         </div>
     </div>
+    
 </div>
         <script src="../Frontend/Components/Index/index.js"></script>
     </script>

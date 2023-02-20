@@ -51,7 +51,7 @@
     $createUserTableQuery = $db -> prepare("CREATE TABLE `notes-app`.`notesuser($idUser)` (
         `idnotesuser` INT NOT NULL AUTO_INCREMENT,
         `notetitle` VARCHAR(20) NULL,
-        `notedescription` VARCHAR(45) NULL,
+        `notedescription` VARCHAR(150) NULL,
         PRIMARY KEY (`idnotesuser`))");
     $userTable = $createUserTableQuery->execute();
 

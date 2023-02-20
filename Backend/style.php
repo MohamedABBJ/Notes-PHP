@@ -2,8 +2,21 @@
 header('Content-type: text/css; charset:UTF-8')
 ?>
 .Content .Notes .Notebtn{
-    width:250px;
-    height:140px;
+    width:197px;
+    height:205px;
+    background: url("../Assets/Index/NoteBackground.png");
+    background-repeat:no-repeat;
+    border:none;
+}
+.Content .Notes .Notebtn .NoteTitle{
+    text-align:left;
+    margin:-30px 0px 0px 10px;
+}
+.Content .Notes .Notebtn .NoteDescription{
+    margin:-10px 0px 0px 0px;
+    width:80%;
+    resize:none;
+    overflow:hidden;
 }
 
 .Content .Notes{
@@ -35,6 +48,8 @@ header('Content-type: text/css; charset:UTF-8')
     margin-top:-0.2vh;
     margin-left:18.2%;
     background: url("../Assets/Index/UserBackground.png");
+    background-repeat:no-repeat;
+    background-size:cover;
 }
 .TopBarContent .TopBarContent_WelcomeMessage{
     font-size:40px;
@@ -54,21 +69,20 @@ header('Content-type: text/css; charset:UTF-8')
 
 .LeftBarContent .LeftBarContent_Username{
     position:absolute;
-    bottom:20px;
+    bottom:15px;
     left:10%;
     color:white;
 }
 
 .LeftBarContent .LeftBarContent_NotesMark{
     position:absolute;
-    padding-top:;
     padding:10%;
 }
 
 .LeftBarContent .LeftBarContent_Buttons{
-    margin-top:80%;
+    margin-top:200px;
     padding-left:5%;
-    width:94%;
+    width:89%;
     position:absolute;
 }
 
@@ -122,7 +136,7 @@ header('Content-type: text/css; charset:UTF-8')
     background-color:#f2edd3;
     width:25%;
     height:75vh;
-    right:20px;
+    right:10px;
     top:-55px;
 }
 
@@ -143,14 +157,14 @@ header('Content-type: text/css; charset:UTF-8')
     font-size:20px;
     left:40px;
     top:-22px;
-    width:120px;
+    width:50%;
 }
 .NotesContent .CreateNoteContent .NewNoteInputs input,textarea{
     background-color:transparent;
     border:none;
     font-size:20px;
     margin-left:15px;
-    width:240px;
+    width:80%;
 }
 .NotesContent .CreateNoteContent .NewNoteInputs input{
     border-bottom:solid rgba(0, 0, 0, .1);
@@ -169,14 +183,14 @@ header('Content-type: text/css; charset:UTF-8')
 }
 
 .NotesContent .CreateNoteContent .AddNoteBtn{
-    position:relative;
+    position:absolute;
     background-color:#FE5300;
     border:none;
     border-radius:10px;
-    bottom:-50px;
+    bottom:10px;
     left:30px;
-    width:210px;
-    height:6vh;
+    width:80%;
+    height:40px;
     color:white;
 }
 .NotesContent .CreateNoteContent .AddNoteBtn:hover{
@@ -185,5 +199,9 @@ header('Content-type: text/css; charset:UTF-8')
 .NotesContent .CreateNoteContent .AddNoteBtn:active{
     background-color:#b83c00;
 }
-
-
+.Content .Notes{
+    border:solid black;
+    overflow:auto;
+    width:73%;
+    height:68vh;
+}
