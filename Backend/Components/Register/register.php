@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../../Global/globalStyle.php">
+</head>
+<body>
 <?php 
     include("../DB/dbConection.php");
     $name = $_REQUEST['name'];
@@ -41,7 +51,7 @@
     $createUserTableQuery = $db -> prepare("CREATE TABLE `notes-app`.`notesuser($idUser)` (
         `idnotesuser` INT NOT NULL AUTO_INCREMENT,
         `notetitle` VARCHAR(20) NULL,
-        `notedescription` VARCHAR(45) NULL,
+        `notedescription` VARCHAR(150) NULL,
         PRIMARY KEY (`idnotesuser`))");
     $userTable = $createUserTableQuery->execute();
 
@@ -63,3 +73,6 @@
     header("refresh:0;url='../../../Frontend/Components/Register/register.html");
 }
 ?>
+    
+</body>
+</html>
