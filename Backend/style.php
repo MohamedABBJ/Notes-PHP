@@ -8,12 +8,15 @@ header('Content-type: text/css; charset:UTF-8')
     background-repeat:no-repeat;
     border:none;
 }
+
 .Content .Notes .Notebtn:hover{
     background:url("../Assets/Index/NoteBackgroundHover.png");
 }
+
 .Content .Notes .Notebtn:active{
     background:url("../Assets/Index/NoteBackgroundActive.png");
 }
+
 .Content .Notes .Notebtn .NoteTitle{
     text-align:left;
     margin:-30px 0px 0px 10px;
