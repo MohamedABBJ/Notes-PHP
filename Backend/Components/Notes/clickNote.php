@@ -77,16 +77,17 @@
                 $noteTitle = $searchNote[0];
                 $noteDescription = $searchNote[1];
                 echo ("
-                <div>
+                <div class='NoteTitleAndDescription'>
                 <h2>Note Title</h2>
                 <h1>$noteTitle</h1>
                 <h2>Note description</h2>
-                <textarea name='' id='' cols='30' rows='10' disabled>$noteDescription</textarea>  
+                <textarea name='' id='' cols='30' rows='10'>$noteDescription</textarea>  
                 </div>
                 "
                 );
                 ?>
-                <div>
+
+                <div class="buttons">
                     <button onclick="editTask()">Edit Note</button>
                     <button onclick="deleteTask()">Delete Note</button>
                 </div>
