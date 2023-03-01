@@ -40,7 +40,7 @@
                 if($loginStatus === 1){
                     echo "
                     <div class='LeftBarContent_NotesMark'>
-                    <img src='../Assets/Index/Logo.png' alt='' srcset=''>
+                    <img>
                     </div>
                     <div class='LeftBarContent_LogoutButton'>
                     <form action='./Components/LogOut/logout.php' method='post'>
@@ -50,7 +50,8 @@
                     <div class='LeftBarContent_Buttons'>
                     <button>
                     <p>Home</p>
-                    <img src='../Assets/Global/HomeIcon.png' alt='' srcset=''>
+                    <p class='HomeIcon'></p>
+                    <img>
                     </button>
                     </div>"
                     ;
@@ -81,7 +82,7 @@
                     <form action='./Components/Notes/userNote.php' id='submitNote' method='post'>
                     <div class='NewNoteInputs'>
                         <input maxlength='20' class='NoteTitle' id='noteTitle' name='noteTitle' type='text' placeholder='Title'>
-                        <textarea rows='6' maxlength='124' class='NoteDescription'id='noteDescription' name='noteDescription' type='text' placeholder='Enter Details'></textarea>
+                        <textarea rows='6' maxlength='124' class='NoteDescription'id='noteDescription' name='noteDescription' type='text' placeholder='Description'></textarea>
                     </div>  
                         <input class='AddNoteBtn' type='submit' value='Add New Note'>       
                     </form>

@@ -11,35 +11,46 @@ header('Content-type: text/css; charset:UTF-8')
     text-align:center;
     
 }
-.Content > div{
-    text-align:center;
-    margin-bottom:3%;
-    margin-top:0%;
-}
-.Content > div > textarea{
-    resize:none;
-    font-weight:bold;
-    outline:none;
-    margin:12px 0 0 0;
-    border:solid black;
-    height:30vh;
-    background:url("../../../Assets/Global/MyNotesDescriptionLines.png");
-    background-position:0px 15px;
-    background-repeat:no-repa;
-    line-height:5vh;
-}
 .Content .NoteTitleAndDescription{
     display:inline-block;
     text-align:center;
     margin-top:5.2%;
     margin-bottom:2.3%;
-    width:900px;
-    height:340px;
+    width:890px;
+    height:360px;
     background:url("../../../Assets/Global/NoteBackground.png");
-    background-repeat:no-repeat;
     background-position: center;
-    background-size:cover;
+    background-size:900px;
+    border:solid green;
+    border-radius:20px;
 }
+
+
+.Content .NoteTitleAndDescription .NoteDescription > textarea{
+    resize:none;
+    font-weight:bold;
+    outline:none;
+    margin:5px 0 5px 0;
+    height:200px;
+    width:680px;
+    background:url("../../../Assets/Global/MyNotesDescriptionLines.png");
+    background-position:0px 35px;
+    background-attachment:local;
+    border:none;
+    line-height:49px;
+    font-size:20px;
+
+}
+
+.Content .NoteTitleAndDescription .NoteDescription{
+    margin:15px 0 5px 0;
+    display:inline-block;
+    text-align:center;
+    border:solid black;
+    border-radius:20px;
+    width:700px;
+}
+
 .Content .buttons{
     position:relative;
     margin-top:-12px;
@@ -58,4 +69,18 @@ header('Content-type: text/css; charset:UTF-8')
 }
 .Content .buttons button:active{
     background-color:#b83c00;
+}
+.LeftBarContent .LeftBarContent_Buttons .HomeButton{
+   background-color:#004c42;
+}
+.LeftBarContent .LeftBarContent_Buttons .EditingNoteButton {
+    margin-left:20px;
+    width:185px;
+}
+.LeftBarContent .LeftBarContent_Buttons .EditingNoteButton > p{
+    width:80px;
+}
+.LeftBarContent .LeftBarContent_Buttons .EditingNoteButton > img{
+    content:url("../../../Assets/Global/MyNotesIcon.png");
+
 }

@@ -48,9 +48,14 @@
                     </div>
                     </form>
                     <div class='LeftBarContent_Buttons'>
-                    <button>
+                    <button class='HomeButton' onclick='btnClickHome()'>
                     <p>Home</p>
-                    <img src='../Assets/Index/HomeIcon.png' alt='' srcset=''>
+                    <img>
+                    </button>
+                    <button class='EditingNoteButton'>
+                    <p>Editing Note</p>
+                    <p class='HomeIcon'></p>
+                    <img>
                     </button>
                     </div>";
             echo
@@ -81,12 +86,13 @@
                 <h2>Note Title</h2>
                 <h1>$noteTitle</h1>
                 <h2>Note description</h2>
+                <div class='NoteDescription'>
                 <textarea name='' id='' cols='30' rows='10'>$noteDescription</textarea>  
+                </div>
                 </div>
                 "
                 );
                 ?>
-
                 <div class="buttons">
                     <button onclick="editTask()">Edit Note</button>
                     <button onclick="deleteTask()">Delete Note</button>
