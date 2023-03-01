@@ -4,16 +4,19 @@ header('Content-type: text/css; charset:UTF-8')
 .Content .Notes .Notebtn{
     width:197px;
     height:205px;
-    background: url("../Assets/Index/NoteBackground.png");
+    background: url("../Assets/Global/NoteBackground.png");
     background-repeat:no-repeat;
     border:none;
 }
+
 .Content .Notes .Notebtn:hover{
-    background:url("../Assets/Index/NoteBackgroundHover.png");
+    background:url("../Assets/Global/NoteBackgroundHover.png");
 }
+
 .Content .Notes .Notebtn:active{
-    background:url("../Assets/Index/NoteBackgroundActive.png");
+    background:url("../Assets/Global/NoteBackgroundActive.png");
 }
+
 .Content .Notes .Notebtn .NoteTitle{
     text-align:left;
     margin:-30px 0px 0px 10px;
@@ -49,97 +52,6 @@ header('Content-type: text/css; charset:UTF-8')
     width:81.4%;
     border:solid black;
 }
-
-.TopBarContent{
-    position:relative;
-    border:solid black;
-    width:81.4%;
-    height:30vh;
-    margin-top:-0.2vh;
-    margin-left:18.2%;
-    background: url("../Assets/Index/UserBackground.png");
-    background-repeat:no-repeat;
-    background-size:cover;
-}
-.TopBarContent .TopBarContent_WelcomeMessage{
-    font-size:40px;
-    margin-top:11%;
-    margin-left:3%;
-    color:white;
-}
-
-.LeftBarContent{
-    margin-top:-32vh;
-    position:relative;
-    width:18%;
-    height:100vh;
-    border:solid black; 
-    background-color: #004c42;
-}
-
-.LeftBarContent .LeftBarContent_Username{
-    position:absolute;
-    bottom:15px;
-    left:10%;
-    color:white;
-}
-
-.LeftBarContent .LeftBarContent_NotesMark{
-    position:absolute;
-    padding:10%;
-}
-
-.LeftBarContent .LeftBarContent_Buttons{
-    margin-top:200px;
-    padding-left:5%;
-    width:89%;
-    position:absolute;
-}
-
-.LeftBarContent .LeftBarContent_LogoutButton{
-    position:absolute;
-    bottom:10px;
-    right:20px;
-    
-}
-
-.LeftBarContent .LeftBarContent_LogoutButton form > input{
-    background-color:transparent;
-    border-radius:20px;
-    border: 2px solid white;
-    height:6vh;
-    width:70px;
-    color:white;
-}
-
-.LeftBarContent .LeftBarContent_LogoutButton form > input:hover{
-    background-color:#003a33;
-}
-
-.LeftBarContent .LeftBarContent_Buttons button{
-    width:94%;
-    height:5vh;
-    background-color:#003a33;
-    border-radius:20px;
-    border:none;
-}
-.LeftBarContent .LeftBarContent_Buttons button:hover{
-    background-color:#003a33;
-}
-
-.LeftBarContent .LeftBarContent_Buttons button > p{
-    position:relative;
-    margin-left:20%;
-    color:white;
-    top:7px;
-    width:20%;
-}
-.LeftBarContent .LeftBarContent_Buttons button > img{
-    position:relative;
-    bottom:10px;
-    margin-right:80%;
-}
-
 .NotesContent .CreateNoteContent{
     position:absolute;
     border-radius:20px;
@@ -183,8 +95,8 @@ header('Content-type: text/css; charset:UTF-8')
     color:rgba(0, 0, 0, .5);
 }
 .NotesContent .CreateNoteContent .NewNoteInputs > textarea{
-    background: url("../Assets/Index/MyNotesDescriptionLines.png");
-    background-repeat:no-repeat;
+    background: url("../Assets/Global/MyNotesDescriptionLines.png");
+     background-blend-mode: overlay;
     background-position:0px 35px;
     resize:none;
     overflow:hidden;
@@ -208,10 +120,4 @@ header('Content-type: text/css; charset:UTF-8')
 }
 .NotesContent .CreateNoteContent .AddNoteBtn:active{
     background-color:#b83c00;
-}
-.Content .Notes{
-    border:solid black;
-    overflow:auto;
-    width:73%;
-    height:68vh;
 }

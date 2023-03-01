@@ -11,36 +11,15 @@
 <body>
     <div class="TopBarContent">
     <?php 
-            session_start();
-            $maxUserNotesId = $_SESSION['maxUserNotesId'] ?? NULL;
-            $loginStatus = $_SESSION['loginStatus'] ?? NULL;
-            $loginName = $_SESSION['loginName'] ?? NULL;
-            
-            
-                if($loginStatus === 1){
-                
-                    echo "
-                    <div class='TopBarContent_WelcomeMessage'>
-                    Welcome, ". $loginName . "!"."
-                    </div>
-                    "
-                    
-                    ;
-            }
-         else{
-                echo "
-                <button onclick='btnClickLogIn()'>Login</button>";
-        }
-            
-
-            ?>
+        include(__DIR__ . "./Global/topBarContent.php");
+     ?>
     </div>
     <div class='LeftBarContent'>
     <?php     
                 if($loginStatus === 1){
                     echo "
                     <div class='LeftBarContent_NotesMark'>
-                    <img src='../Assets/Index/Logo.png' alt='' srcset=''>
+                    <img>
                     </div>
                     <div class='LeftBarContent_LogoutButton'>
                     <form action='./Components/LogOut/logout.php' method='post'>
@@ -50,7 +29,8 @@
                     <div class='LeftBarContent_Buttons'>
                     <button>
                     <p>Home</p>
-                    <img src='../Assets/Index/HomeIcon.png' alt='' srcset=''>
+                    <p class='HomeIcon'></p>
+                    <img>
                     </button>
                     </div>"
                     ;
@@ -81,7 +61,7 @@
                     <form action='./Components/Notes/userNote.php' id='submitNote' method='post'>
                     <div class='NewNoteInputs'>
                         <input maxlength='20' class='NoteTitle' id='noteTitle' name='noteTitle' type='text' placeholder='Title'>
-                        <textarea rows='6' maxlength='124' class='NoteDescription'id='noteDescription' name='noteDescription' type='text' placeholder='Enter Details'></textarea>
+                        <textarea rows='6' maxlength='124' class='NoteDescription'id='noteDescription' name='noteDescription' type='text' placeholder='Description'></textarea>
                     </div>  
                         <input class='AddNoteBtn' type='submit' value='Add New Note'>       
                     </form>
@@ -116,7 +96,7 @@
                         $showNoteDescriptionLongTruncate = substr($showNoteDescription,0,40);
                         $showNoteDescriptionLongTruncateLength = strlen($showNoteDescriptionLongTruncate) + 3;
                         $showNoteDescriptionLongPreview = str_pad($showNoteDescriptionLongTruncate,$showNoteDescriptionLongTruncateLength,"...",STR_PAD_RIGHT);
-                        
+
                         echo("
                         <div class='NoteBtnContents'>
                         <form action='./Components/Notes/clickNote.php' id='submitNote' method='post'>

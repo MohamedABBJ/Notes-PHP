@@ -7,3 +7,6 @@ let deleteTask = () =>{
         location.href = "../../../Backend/Components/Notes/deleteNote.php"
     }
 }
+btnClickHome = () =>{
+    location.href = "../../../Backend/index.php";
+  };
