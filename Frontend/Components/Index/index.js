@@ -4,6 +4,3 @@ btnClickLogIn = () => {
 btnClickLogOut = () => {
   location.href = "./Components/Logout/logout.php";
 };
-btnClickHome = () =>{
-  console.log("a");
-};
