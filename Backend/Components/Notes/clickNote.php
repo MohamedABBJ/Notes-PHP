@@ -68,7 +68,7 @@
                 <h1>$noteTitle</h1>
                 <h2>Note description</h2>
                 <div class='NoteDescription'>
-                <textarea name='' id='' cols='30' rows='10'>$noteDescription</textarea>  
+                <textarea disabled name='' id='' cols='30' rows='10'>$noteDescription</textarea>  
                 </div>
                 </div>
                 "

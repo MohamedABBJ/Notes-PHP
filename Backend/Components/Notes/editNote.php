@@ -66,7 +66,7 @@
                 <input type='text' name='newTitle' value='$noteTitle' id='newTitle'><br>
                 <h2>New description</h2>
                 <div class='NoteDescription'>
-                <textarea name='newDescription' id='' cols='30' rows='10'>$noteDescription</textarea>  <br>
+                <textarea name='newDescription' id='newDescription' cols='30' rows='10'>$noteDescription</textarea>  <br>
                 </div>
                 <div class='buttons'>
                 <br><button type='submit' class='editBtn'>Edit</button>
