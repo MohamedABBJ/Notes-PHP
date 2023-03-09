@@ -9,7 +9,6 @@ header('Content-type: text/css; charset:UTF-8')
     height:68.6vh;
     width:81.7%;
     text-align:center;
-    
 }
 .Content .NoteTitleAndDescription{
     display:inline-block;
@@ -24,7 +23,13 @@ header('Content-type: text/css; charset:UTF-8')
     border:solid green;
     border-radius:20px;
 }
-
+.Content .NoteTitleAndDescription > h2{
+    padding:0px 0px 5px 0px;
+}
+.Content .NoteTitleAndDescription > form > h2{
+    color:blue;
+    padding:10px 0px 0px 0px;
+}
 
 .Content .NoteTitleAndDescription .NoteDescription > textarea{
     resize:none;
@@ -41,9 +46,24 @@ header('Content-type: text/css; charset:UTF-8')
     font-size:20px;
 
 }
+.Content .NoteTitleAndDescription > form > input{
+    background-color:transparent;
+    border:none;
+    font-size:20px;
+    margin-left:15px;
+    width:70%;
+    text-align:center;
+    border-bottom:solid rgba(0, 0, 0, .2);
+}
+.Content .NoteTitleAndDescription > form > input:focus{
+    outline-style:solid;
+    outline-color:black;
+    outline-width:2px;
+    border-radius:10px;
+}
 
 .Content .NoteTitleAndDescription .NoteDescription{
-    margin:15px 0 5px 0;
+    margin:13px 0 5px 0;
     display:inline-block;
     text-align:center;
     border:solid black;
@@ -51,18 +71,24 @@ header('Content-type: text/css; charset:UTF-8')
     width:700px;
 }
 
-.Content .buttons{
-    position:relative;
-    margin-top:-12px;
-}
 .Content .buttons button{
     background-color:#FE5300;
     font-size:18px;
     border:none;
     border-radius:10px;
-    width:25%;
+    width:275px;
     height:40px;
     color:white;
+}
+.Content .buttons .editBtn{
+    position:relative;
+    top:27px;
+    right:140px;
+}
+.Content .buttons .cancelBtn{
+    position:relative;
+    bottom:13px;
+    left:140px;
 }
 .Content .buttons button:hover{
     background-color:#db4800;

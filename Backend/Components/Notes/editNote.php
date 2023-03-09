@@ -60,40 +60,31 @@
                 $noteTitle = $searchNote[0];
                 $noteDescription = $searchNote[1];
                 echo ("
-                <div class='NoteTitleAndDescription'>
-                <h2>Note Title</h2>
-                <h1>$noteTitle</h1>
-                <h2>Note description</h2>
+                <div class='NoteTitleAndDescription'> 
+                <h2>New Title</h2>
+                <form action='' method='post'>
+                <input type='text' name='newTitle' value='$noteTitle' id='newTitle'><br>
+                <h2>New description</h2>
                 <div class='NoteDescription'>
-                <textarea name='' id='' cols='30' rows='10'>$noteDescription</textarea>  
+                <textarea name='newDescription' id='' cols='30' rows='10'>$noteDescription</textarea>  <br>
                 </div>
+                <div class='buttons'>
+                <br><button type='submit' class='editBtn'>Edit</button>
+                </div>
+                </form>
                 </div>
                 "
                 );
                 ?>
                 <div class="buttons">
-                    <button onclick="editTask()">Edit Note</button>
-                    <button onclick="deleteTask()">Delete Note</button>
+                    <button class="cancelBtn" onclick="cancel()">Cancel</button>
                 </div>
-    <h1>Editing Note</h1>
-    <p>Leave title or description in blank if you don't want to edit it</p>
-    <form action='' method="post">
-        New title <input type="text" name="newTitle" value="" id="newTitle"><br>
-        <br>
-        New description <input type="text" name="newDescription" id="newDescription" value=""><br>
-        <button type="submit">Edit Note</button>
-    </form>
-    <br>
-    <button onclick="cancel()">Cancel</button>
+             <br>
     </div>
-
-    
     <?php 
     include(__DIR__ . "../../DB/dbConection.php");
     $newTitle = $_POST['newTitle'] ?? NULL;
     $newDescription = $_POST['newDescription'] ?? NULL;
-
-    session_start();
     $idUser = $_SESSION['iduser'] ?? NULL;
     $noteId = $_SESSION['noteId'] ?? NULL;
     
