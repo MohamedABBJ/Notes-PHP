@@ -44,7 +44,6 @@ header('Content-type: text/css; charset:UTF-8')
     border:none;
     line-height:49px;
     font-size:20px;
-
 }
 .Content .NoteTitleAndDescription > form > input{
     background-color:transparent;

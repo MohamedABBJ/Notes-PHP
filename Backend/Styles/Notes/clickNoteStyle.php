@@ -41,6 +41,10 @@ header('Content-type: text/css; charset:UTF-8')
     font-size:20px;
 
 }
+.Content .NoteTitleAndDescription .NoteDescription > textarea:disabled{
+    color:black;
+}
+
 
 .Content .NoteTitleAndDescription .NoteDescription{
     margin:15px 0 5px 0;
