@@ -29,7 +29,7 @@ header('Content-type: text/css; charset:UTF-8')
     resize:none;
     overflow:hidden;
     border:none;
-    outline:none;
+    outline:none; 
 }
 
 .Content .Notes{

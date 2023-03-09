@@ -9,7 +9,7 @@ header('Content-type: text/css; charset:UTF-8')
 html{
     height:100vh;
     width:auto;
-    overflow:hidden;
+    overflow:visible;
 }
 .TopBarContent{
     position:relative;
