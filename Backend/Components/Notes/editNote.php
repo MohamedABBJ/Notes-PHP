@@ -61,6 +61,7 @@
                 $noteDescription = $searchNote[1];
                 echo ("
                 <div class='NoteTitleAndDescription'> 
+                <div id='NoteTitleAndDescription'>
                 <h2>New Title</h2>
                 <form action='' method='post'>
                 <input type='text' name='newTitle' value='$noteTitle' id='newTitle'><br>
@@ -73,10 +74,11 @@
                 </div>
                 </form>
                 </div>
+                </div>
                 "
                 );
                 ?>
-                <div class="buttons">
+                <div id="button_cancel" class="buttons">
                     <button class="cancelBtn" onclick="cancel()">Cancel</button>
                 </div>
              <br>
@@ -90,11 +92,12 @@
     
     
     echo("<script>
-    let disableInputs = () =>{
-    newTitle = document.getElementById('newTitle');
-    newTitle.setAttribute('disabled', '');
-    newDescription = document.getElementById('newDescription');
-    newDescription.setAttribute('disabled', '');}
+    let removeElements = () =>{
+    NoteTitleAndDescription = document.getElementById('NoteTitleAndDescription');
+    NoteTitleAndDescription.remove();
+    button_cancel = document.getElementById('button_cancel');
+    button_cancel.remove();
+    }
     </script>");
 
     //Editing both
@@ -104,7 +107,7 @@
         $editNoteDescriptionQuery->bindParam(':noteDescription', $newDescription);
         $editNoteDescriptionQuery->execute();
         echo("<script>
-        disableInputs();
+        removeElements();
         </script>");
         echo("Note title and description has been edited successfully <br>");
         echo("Wait a moment, redirecting...");
@@ -116,7 +119,7 @@
             $editNoteQuery->bindParam(':noteTitle', $newTitle);
             $editNoteQuery->execute();
             echo("<script>
-            disableInputs();
+            removeElements();
             </script>");
             echo("Note title has been edited successfully");
             echo("Wait a moment, redirecting...");
@@ -128,7 +131,7 @@
             $editDescriptionQuery->bindParam(':noteDescription', $newDescription);
             $editDescriptionQuery->execute();
             echo("<script>
-            disableInputs();
+            removeElements();
             </script>");
             echo("Note description has been edited successfully");
             echo("Wait a moment, redirecting...");

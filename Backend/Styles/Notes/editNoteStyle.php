@@ -45,7 +45,7 @@ header('Content-type: text/css; charset:UTF-8')
     line-height:49px;
     font-size:20px;
 }
-.Content .NoteTitleAndDescription > form > input{
+.Content .NoteTitleAndDescription #NoteTitleAndDescription > form > input{
     background-color:transparent;
     border:none;
     font-size:20px;
@@ -54,7 +54,7 @@ header('Content-type: text/css; charset:UTF-8')
     text-align:center;
     border-bottom:solid rgba(0, 0, 0, .2);
 }
-.Content .NoteTitleAndDescription > form > input:focus{
+.Content .NoteTitleAndDescription #NoteTitleAndDescription > form > input:focus{
     outline-style:solid;
     outline-color:black;
     outline-width:2px;
@@ -81,7 +81,7 @@ header('Content-type: text/css; charset:UTF-8')
 }
 .Content .buttons .editBtn{
     position:relative;
-    top:27px;
+    top:40px;
     right:140px;
 }
 .Content .buttons .cancelBtn{
