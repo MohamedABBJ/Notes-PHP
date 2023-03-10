@@ -74,7 +74,6 @@ header('Content-type: text/css; charset:UTF-8')
     position:absolute;
     text-align:center;
     vertical-align: middle;
-    border:solid black;
     width:100%;
     top:35%;
 }

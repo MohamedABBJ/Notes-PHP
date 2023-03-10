@@ -156,6 +156,7 @@
         echo("<script>
         removeElements();
         addElementsBothEdited();
+        setTimeout(function() { window.location = '../../index.php'; }, 2000);
         </script>");
     }
     //Editing noteTitle
@@ -166,6 +167,7 @@
             echo("<script>
             removeElements();
             addElementsNoteTitleEdited();
+            setTimeout(function() { window.location = '../../index.php'; }, 2000);
             </script>");
         }
         //Editing noteDescription
@@ -176,7 +178,9 @@
             echo("<script>
             removeElements();
             addElementsNoteDescriptionEdited();
+            setTimeout(function() { window.location = '../../index.php'; }, 2000);
             </script>");
+            
         }
     else if(isset($newDescription) && isset($newTitle) && $newDescription === $noteDescription && $newTitle === $noteTitle){
         echo("<script>alert('You did not edit anything!, if you do not want to edit the note then click cancel')</script>");
