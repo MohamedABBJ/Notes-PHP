@@ -113,6 +113,34 @@
         noteTitleAndDescriptionElement = document.getElementById('NoteTitleAndDescription');
         noteTitleAndDescriptionElement.appendChild(noteEditedDiv);
     }
+    let addElementsNoteTitleEdited = () =>{
+        noteEditedDiv = document.createElement('div');
+        noteEditedDiv.setAttribute('class', 'NoteEdited');
+        noteEditedMsg = document.createElement('h1');
+        noteEditedMsgTextNode = document.createTextNode('Note title has been edited successfully');
+        noteEditedMsg.appendChild(noteEditedMsgTextNode);
+        noteEditedDiv.appendChild(noteEditedMsg);
+        redirectingMsg = document.createElement('h2');
+        redirectingMsgTextNode = document.createTextNode('Wait a moment, redirecting...');
+        redirectingMsg.appendChild(redirectingMsgTextNode);
+        noteEditedDiv.appendChild(redirectingMsg);
+        noteTitleAndDescriptionElement = document.getElementById('NoteTitleAndDescription');
+        noteTitleAndDescriptionElement.appendChild(noteEditedDiv);
+    }
+    let addElementsNoteDescriptionEdited = () =>{
+        noteEditedDiv = document.createElement('div');
+        noteEditedDiv.setAttribute('class', 'NoteEdited');
+        noteEditedMsg = document.createElement('h1');
+        noteEditedMsgTextNode = document.createTextNode('Note Description has been edited successfully');
+        noteEditedMsg.appendChild(noteEditedMsgTextNode);
+        noteEditedDiv.appendChild(noteEditedMsg);
+        redirectingMsg = document.createElement('h2');
+        redirectingMsgTextNode = document.createTextNode('Wait a moment, redirecting...');
+        redirectingMsg.appendChild(redirectingMsgTextNode);
+        noteEditedDiv.appendChild(redirectingMsg);
+        noteTitleAndDescriptionElement = document.getElementById('NoteTitleAndDescription');
+        noteTitleAndDescriptionElement.appendChild(noteEditedDiv);
+    }
     
     </script>");
 
@@ -126,8 +154,6 @@
         removeElements();
         addElementsBothEdited();
         </script>");
-        echo("Note title and description has been edited successfully <br>");
-        echo("Wait a moment, redirecting...");
     }
     //Editing noteTitle
     else if(empty($newDescription) && !empty($newTitle)){
@@ -136,9 +162,8 @@
             $editNoteQuery->execute();
             echo("<script>
             removeElements();
+            addElementsNoteTitleEdited();
             </script>");
-            echo("Note title has been edited successfully");
-            echo("Wait a moment, redirecting...");
         }
         //Editing noteDescription
     else if(!empty($newDescription) && empty($newTitle)){
@@ -147,9 +172,8 @@
             $editDescriptionQuery->execute();
             echo("<script>
             removeElements();
+            addElementsNoteDescriptionEdited();
             </script>");
-            echo("Note description has been edited successfully");
-            echo("Wait a moment, redirecting...");
         }
     else if(isset($newDescription) && isset($newTitle) && empty($newDescription) && empty($newTitle)){
         echo("<script>alert('You cannot leave both inputs in blank!, if you do not want to edit the note then click cancel')</script>");
