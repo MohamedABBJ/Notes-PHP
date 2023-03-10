@@ -29,7 +29,7 @@ header('Content-type: text/css; charset:UTF-8')
     resize:none;
     overflow:hidden;
     border:none;
-    outline:none;
+    outline:none; 
 }
 
 .Content .Notes{
@@ -103,7 +103,6 @@ header('Content-type: text/css; charset:UTF-8')
     line-height:7vh;
     margin-top:20px;
 }
-
 .NotesContent .CreateNoteContent .AddNoteBtn{
     position:absolute;
     background-color:#FE5300;

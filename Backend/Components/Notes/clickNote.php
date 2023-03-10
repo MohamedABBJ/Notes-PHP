@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="../../Global/globalStyle.php">
-
     <link rel="stylesheet" type="text/css" href="../../Styles/Notes/clickNoteStyle.php">
 </head>
 
@@ -69,7 +68,7 @@
                 <h1>$noteTitle</h1>
                 <h2>Note description</h2>
                 <div class='NoteDescription'>
-                <textarea name='' id='' cols='30' rows='10'>$noteDescription</textarea>  
+                <textarea disabled name='' id='' cols='30' rows='10'>$noteDescription</textarea>  
                 </div>
                 </div>
                 "
