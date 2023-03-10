@@ -60,8 +60,8 @@
                 $noteTitle = $searchNote[0];
                 $noteDescription = $searchNote[1];
                 echo ("
-                <div class='NoteTitleAndDescription'> 
-                <div id='NoteTitleAndDescription'>
+                <div id='NoteTitleAndDescription' class='NoteTitleAndDescription'> 
+                <div id='NoteTitleAndDescriptionContent'>
                 <h2>New Title</h2>
                 <form action='' method='post'>
                 <input type='text' name='newTitle' value='$noteTitle' id='newTitle'><br>
@@ -93,11 +93,27 @@
     
     echo("<script>
     let removeElements = () =>{
-    NoteTitleAndDescription = document.getElementById('NoteTitleAndDescription');
-    NoteTitleAndDescription.remove();
+    NoteTitleAndDescriptionContent = document.getElementById('NoteTitleAndDescriptionContent');
+    NoteTitleAndDescriptionContent.remove();
     button_cancel = document.getElementById('button_cancel');
     button_cancel.remove();
     }
+
+    let addElementsBothEdited = () =>{
+        noteEditedDiv = document.createElement('div');
+        noteEditedDiv.setAttribute('class', 'NoteEdited');
+        noteEditedMsg = document.createElement('h1');
+        noteEditedMsgTextNode = document.createTextNode('Note title and description has been edited successfully');
+        noteEditedMsg.appendChild(noteEditedMsgTextNode);
+        noteEditedDiv.appendChild(noteEditedMsg);
+        redirectingMsg = document.createElement('h2');
+        redirectingMsgTextNode = document.createTextNode('Wait a moment, redirecting...');
+        redirectingMsg.appendChild(redirectingMsgTextNode);
+        noteEditedDiv.appendChild(redirectingMsg);
+        noteTitleAndDescriptionElement = document.getElementById('NoteTitleAndDescription');
+        noteTitleAndDescriptionElement.appendChild(noteEditedDiv);
+    }
+    
     </script>");
 
     //Editing both
@@ -108,10 +124,10 @@
         $editNoteDescriptionQuery->execute();
         echo("<script>
         removeElements();
+        addElementsBothEdited();
         </script>");
         echo("Note title and description has been edited successfully <br>");
         echo("Wait a moment, redirecting...");
-        header("refresh:2;url='../../index.php");
     }
     //Editing noteTitle
     else if(empty($newDescription) && !empty($newTitle)){
@@ -123,7 +139,6 @@
             </script>");
             echo("Note title has been edited successfully");
             echo("Wait a moment, redirecting...");
-            header("refresh:2;url='../../index.php");
         }
         //Editing noteDescription
     else if(!empty($newDescription) && empty($newTitle)){
@@ -135,7 +150,6 @@
             </script>");
             echo("Note description has been edited successfully");
             echo("Wait a moment, redirecting...");
-            header("refresh:2;url='../../index.php");
         }
     else if(isset($newDescription) && isset($newTitle) && empty($newDescription) && empty($newTitle)){
         echo("<script>alert('You cannot leave both inputs in blank!, if you do not want to edit the note then click cancel')</script>");

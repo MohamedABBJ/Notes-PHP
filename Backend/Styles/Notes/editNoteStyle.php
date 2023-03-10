@@ -22,6 +22,7 @@ header('Content-type: text/css; charset:UTF-8')
     background-size:900px;
     border:solid green;
     border-radius:20px;
+    position:relative;
 }
 .Content .NoteTitleAndDescription > h2{
     padding:0px 0px 5px 0px;
@@ -45,7 +46,7 @@ header('Content-type: text/css; charset:UTF-8')
     line-height:49px;
     font-size:20px;
 }
-.Content .NoteTitleAndDescription #NoteTitleAndDescription > form > input{
+.Content .NoteTitleAndDescription #NoteTitleAndDescriptionContent > form > input{
     background-color:transparent;
     border:none;
     font-size:20px;
@@ -54,7 +55,7 @@ header('Content-type: text/css; charset:UTF-8')
     text-align:center;
     border-bottom:solid rgba(0, 0, 0, .2);
 }
-.Content .NoteTitleAndDescription #NoteTitleAndDescription > form > input:focus{
+.Content .NoteTitleAndDescription #NoteTitleAndDescriptionContent > form > input:focus{
     outline-style:solid;
     outline-color:black;
     outline-width:2px;
@@ -69,7 +70,14 @@ header('Content-type: text/css; charset:UTF-8')
     border-radius:20px;
     width:700px;
 }
-
+.Content .NoteTitleAndDescription .NoteEdited{
+    position:absolute;
+    text-align:center;
+    vertical-align: middle;
+    border:solid black;
+    width:100%;
+    top:35%;
+}
 .Content .buttons button{
     background-color:#FE5300;
     font-size:18px;
