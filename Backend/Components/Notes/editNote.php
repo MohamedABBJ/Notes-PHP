@@ -59,6 +59,8 @@
                 $searchNote = $searchNoteQuery->fetch();
                 $noteTitle = $searchNote[0];
                 $noteDescription = $searchNote[1];
+                $_SESSION['noteTitle'] = $noteTitle;
+                $_SESSION['noteDescription'] = $noteDescription;
                 echo ("
                 <div id='NoteTitleAndDescription' class='NoteTitleAndDescription'> 
                 <div id='NoteTitleAndDescriptionContent'>
@@ -67,7 +69,7 @@
                 <input type='text' name='newTitle' value='$noteTitle' id='newTitle'><br>
                 <h2>New description</h2>
                 <div class='NoteDescription'>
-                <textarea name='newDescription' id='newDescription' cols='30' rows='10'>$noteDescription</textarea>  <br>
+                <textarea name='newDescription' value='$noteDescription' id='newDescription' cols='30' rows='10'>$noteDescription</textarea>  <br>
                 </div>
                 <div class='buttons'>
                 <br><button type='submit' class='editBtn'>Edit</button>
@@ -89,7 +91,8 @@
     $newDescription = $_POST['newDescription'] ?? NULL;
     $idUser = $_SESSION['iduser'] ?? NULL;
     $noteId = $_SESSION['noteId'] ?? NULL;
-    
+    $noteTitle = $_SESSION['noteTitle'] ?? NULL;
+    $noteDescription = $_SESSION['noteDescription'] ?? NULL;
     
     echo("<script>
     let removeElements = () =>{
@@ -145,7 +148,7 @@
     </script>");
 
     //Editing both
-    if(!empty($newDescription) && !empty($newTitle)){
+    if(isset($newDescription) && isset($newTitle) && $newDescription !== $noteDescription && $newTitle !== $noteTitle){
         $editNoteDescriptionQuery = $db -> prepare("UPDATE `notes-app`.`notesuser($idUser)` SET `notetitle` = :noteTitle, `notedescription` = :noteDescription  WHERE idnotesuser = $noteId");
         $editNoteDescriptionQuery->bindParam(':noteTitle', $newTitle);
         $editNoteDescriptionQuery->bindParam(':noteDescription', $newDescription);
@@ -156,7 +159,7 @@
         </script>");
     }
     //Editing noteTitle
-    else if(empty($newDescription) && !empty($newTitle)){
+    else if(isset($newDescription) && isset($newTitle) && $newDescription === $noteDescription && $newTitle !== $noteTitle ){
             $editNoteQuery = $db -> prepare("UPDATE `notes-app`.`notesuser($idUser)` SET `notetitle` = :noteTitle  WHERE idnotesuser = $noteId");
             $editNoteQuery->bindParam(':noteTitle', $newTitle);
             $editNoteQuery->execute();
@@ -166,7 +169,7 @@
             </script>");
         }
         //Editing noteDescription
-    else if(!empty($newDescription) && empty($newTitle)){
+    else if(isset($newDescription) && isset($newTitle) && $newDescription !== $noteDescription && $newTitle === $noteTitle){
             $editDescriptionQuery = $db -> prepare("UPDATE `notes-app`.`notesuser($idUser)` SET `notedescription` = :noteDescription  WHERE idnotesuser = $noteId");
             $editDescriptionQuery->bindParam(':noteDescription', $newDescription);
             $editDescriptionQuery->execute();
@@ -175,8 +178,8 @@
             addElementsNoteDescriptionEdited();
             </script>");
         }
-    else if(isset($newDescription) && isset($newTitle) && empty($newDescription) && empty($newTitle)){
-        echo("<script>alert('You cannot leave both inputs in blank!, if you do not want to edit the note then click cancel')</script>");
+    else if(isset($newDescription) && isset($newTitle) && $newDescription === $noteDescription && $newTitle === $noteTitle){
+        echo("<script>alert('You did not edit anything!, if you do not want to edit the note then click cancel')</script>");
     }
     ?>    
     <script src="../../../Frontend/Notes/userNote/editNote.js"></script>
