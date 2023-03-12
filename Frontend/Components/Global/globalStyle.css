@@ -1,11 +1,12 @@
 html{
+    position: relative;
     font-family: Kanit;
-    height:100vh;
-    width:1200px;
     overflow: hidden;
+    height: 800px;
+    border: solid black;
 }
 body{
-    background-color: #c5ffde;
+    background-color:rgba(0, 76, 66, 0.8);
     height:100%;
     margin:0px;
 }   
