@@ -97,7 +97,7 @@ html{
     margin-left:20%;
     color:white;
     top:7px;
-    width:20%;
+    width:40%;
 }
 .LeftBarContent .LeftBarContent_Buttons button > img{
     content:url("../../Assets/Global/HomeIcon.png");

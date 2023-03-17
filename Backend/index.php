@@ -28,7 +28,7 @@
                     </form>
                     <div class='LeftBarContent_Buttons'>
                     <button>
-                    <p>Home</p>
+                    <p>My notes</p>
                     <p class='HomeIcon'></p>
                     <img>
                     </button>

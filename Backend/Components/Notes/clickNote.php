@@ -30,7 +30,7 @@
                     </form>
                     <div class='LeftBarContent_Buttons'>
                     <button class='HomeButton' onclick='btnClickHome()'>
-                    <p>Home</p>
+                    <p>My notes</p>
                     <img>
                     </button>
                     <button class='EditingNoteButton'>
