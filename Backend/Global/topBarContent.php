@@ -13,8 +13,4 @@
             "
             ;
     }
-    else{
-        echo "
-        <button onclick='btnClickLogIn()'>Login</button>";
-    }
 ?>

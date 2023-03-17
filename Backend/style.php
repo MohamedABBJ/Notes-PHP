@@ -30,6 +30,7 @@ header('Content-type: text/css; charset:UTF-8')
     overflow:hidden;
     border:none;
     outline:none; 
+    border:solid black;
 }
 
 .Content .Notes{
@@ -50,7 +51,6 @@ header('Content-type: text/css; charset:UTF-8')
     margin-left:18.2%;
     height:68.6vh;
     width:81.4%;
-    border:solid black;
 }
 .NotesContent .CreateNoteContent{
     position:absolute;
@@ -119,4 +119,21 @@ header('Content-type: text/css; charset:UTF-8')
 }
 .NotesContent .CreateNoteContent .AddNoteBtn:active{
     background-color:#b83c00;
+}
+.Content .Notes .NotLoggedIn .LoginBtn{
+    display:flex;
+    justify-content:center;
+}
+.Content .Notes .NotLoggedIn .LoginBtn > button{
+    padding:10px 0px 10px 0px;
+    margin:10px 0px 20px 0px;
+    width: 300px;
+    border-radius:10px;
+    border:none;
+    color:white;
+    background-color: rgb(47, 168, 93);
+    cursor: pointer;
+}
+.Content .Notes .NotLoggedIn .LoginBtn > button:active{
+    background-color: rgb(0, 0, 0);
 }

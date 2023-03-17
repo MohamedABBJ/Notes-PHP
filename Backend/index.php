@@ -41,7 +41,9 @@
             }
          else{
                 echo "
-                <button onclick='btnClickLogIn()'>Login</button>";
+                <div class='LeftBarContent_NotesMark'>
+                <img>
+                </div>";
         }
 
             ?>
@@ -67,10 +69,6 @@
                     </form>
                     ";
             }
-         else{
-                echo "
-                <h1>You have to log in first!</h1>";
-        }
             
 
         ?>
@@ -131,6 +129,16 @@
                     }
             
         }
+    }
+    else{
+                echo "
+                <div class='NotLoggedIn'>
+                <h1>You are not logged in!</h1> <br>
+                <div class='LoginBtn'>
+                <button onclick='btnClickLogIn()'>Login</button>;
+                </div>
+                </div>
+                ";
     }
                     
     ?>
