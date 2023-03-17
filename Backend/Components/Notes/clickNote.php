@@ -75,8 +75,8 @@
                 );
                 ?>
                 <div class="buttons">
-                    <button onclick="editTask()">Edit Note</button>
-                    <button onclick="deleteTask()">Delete Note</button>
+                    <button onclick="editNote()">Edit Note</button>
+                    <button onclick="deleteNote()">Delete Note</button>
                 </div>
         </div>
         <script src="../../../Frontend/Components/Index/index.js"></script>

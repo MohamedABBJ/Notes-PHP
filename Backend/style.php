@@ -30,7 +30,6 @@ header('Content-type: text/css; charset:UTF-8')
     overflow:hidden;
     border:none;
     outline:none; 
-    border:solid black;
 }
 
 .Content .Notes{
