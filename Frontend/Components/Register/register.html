@@ -11,7 +11,10 @@
 <body>
     <div class="OuterRegisterForm">
         <div class="InnerRegisterForm">
+            <img class="Logo" src="../../../Assets/Global/Logo.png" alt="">
             <form action="../../../Backend/Components/Register/register.php" method="post" onsubmit="return checkSubmit()">
+            <div class="OuterFieldInput">
+            <h1>Register</h1>
                 <div class="FieldInput">
                     <label>Name</label>
                     <input type="text" name="name">
@@ -30,12 +33,17 @@
                     <input id="password" type="text" name="password">
                 </div>
                 <br style="clear:both;">
-                <div class="FieldInput">
-                    <label>Confirm Password</label>
-                    <input id="confirmPassword" type="text" name="confirmPassword">
+                <div class="ConfirmPassword">
+                    <div class="FieldInput">
+                        <label>Confirm Password</label>
+                        <input id="confirmPassword" type="text" name="confirmPassword">
+                    </div>
                 </div>
                 <br style="clear:both;">
-                <button type="submit">Process</button>
+                <div class="SubmitRegisterBtn">
+                    <button type="submit">Process</button>
+                </div>
+            </div>
             </form>
         </div>
     </div>

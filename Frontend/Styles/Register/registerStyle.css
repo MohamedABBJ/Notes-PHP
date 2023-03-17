@@ -3,7 +3,15 @@
     display: flex;
     width: 100%;
     height: 100vh;
-
+    
+}
+.OuterRegisterForm .InnerRegisterForm > img{
+    position: absolute;
+    top: -40px;
+    left: 320px;
+}
+.OuterRegisterForm .InnerRegisterForm .OuterFieldInput > h1{
+  text-align: center;
 }
 .OuterRegisterForm .InnerRegisterForm{
     margin: 0 auto;
@@ -12,16 +20,18 @@
     transform: translateY(-50%);
     border: solid black;
     border-radius: 20px;
-    padding:50px 50px 50px 50px;
+    padding:0px 30px 40px 30px;
     background-color: white;
     width: 700px;
-    height: 500px;
+    height: 470px;
 }
-.OuterRegisterForm .InnerRegisterForm .FieldInput > input, label{
+.OuterRegisterForm .InnerRegisterForm .OuterFieldInput .FieldInput > input, label{
     display:flex;
     flex-direction:column;
+    margin-left: 30px;
+    margin-top: 20px;
 }
-.OuterRegisterForm .InnerRegisterForm .FieldInput > input{
+.OuterRegisterForm .InnerRegisterForm .OuterFieldInput .FieldInput > input{
     width: 290px;
     height: 40px;
     border: none;
@@ -30,18 +40,41 @@
     border-radius: 10px;
     margin-top:-5px;
 }
-.OuterRegisterForm .InnerRegisterForm .FieldInput > label{
+.OuterRegisterForm .InnerRegisterForm .OuterFieldInput .FieldInput > label{
     margin-bottom: 10px;
 }
-.OuterRegisterForm .InnerRegisterForm .FieldInput{
+.OuterRegisterForm .InnerRegisterForm .OuterFieldInput .FieldInput{
     float: left;
     margin-right: 20px;
     margin-bottom: 20px;
 }
-.OuterRegisterForm .InnerRegisterForm .FieldInput > label{
+.OuterRegisterForm .InnerRegisterForm .OuterFieldInput .FieldInput > label{
     font-weight: bold;
 }
-
+.OuterRegisterForm .InnerRegisterForm .ConfirmPassword{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+.OuterRegisterForm .InnerRegisterForm > form .OuterFieldInput .SubmitRegisterBtn{
+    display: flex;
+    justify-content: center;
+}
+.OuterRegisterForm .InnerRegisterForm > form .OuterFieldInput .SubmitRegisterBtn > button{
+    padding:10px 0px 10px 0px;
+    margin:10px 0px 20px 0px;
+    width: 400px;
+    border-radius:10px;
+    border:none;
+    color:white;
+    background-color: rgb(47, 168, 93);
+    cursor: pointer;
+    padding: 20px;
+    
+}
+.OuterRegisterForm .InnerRegisterForm > form .OuterFieldInput .SubmitRegisterBtn > button:active{
+    background-color: rgb(0, 0, 0);
+}
 
 
 
