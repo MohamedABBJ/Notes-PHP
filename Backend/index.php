@@ -87,6 +87,7 @@
                 $showNotesQuery->bindParam(':idnotesuser', $i);
                 $showNotesQuery->execute();
                 $showNotesData = $showNotesQuery->fetch();
+
                 if(!empty($showNotesData)){
                     $showNoteTitle = $showNotesData[0];
                     $showNoteDescription = $showNotesData[1];

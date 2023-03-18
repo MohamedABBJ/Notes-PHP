@@ -33,8 +33,8 @@
                     <p>My notes</p>
                     <img>
                     </button>
-                    <button class='EditingNoteButton'>
-                    <p>Editing Note</p>
+                    <button class='ViewingNoteButton'>
+                    <p>Viewing Note</p>
                     <p class='HomeIcon'></p>
                     <img>
                     </button>

@@ -65,7 +65,6 @@ html{
     position:absolute;
     bottom:10px;
     right:20px;
-    
 }
 
 .LeftBarContent .LeftBarContent_LogoutButton form > input{

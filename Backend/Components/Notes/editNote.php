@@ -16,6 +16,7 @@
     </div>
     <div class='LeftBarContent'>
         <?php
+        $noteId = $_SESSION['noteId'];
         if ($loginStatus === 1) {
             echo "
                     <div class='LeftBarContent_NotesMark'>
@@ -30,6 +31,12 @@
                     <button class='HomeButton' onclick='btnClickHome()'>
                     <p>My notes</p>
                     <img>
+                    </button>
+                    <form action='./clickNote.php' id='submitNote' method='post'>
+                    <button class='ViewingNoteButton' type='submit' name='noteId' value='$noteId'>
+                    <p>View Note</p>
+                    <img>
+                    </form>
                     </button>
                     <button class='EditingNoteButton'>
                     <p>Editing Note</p>
@@ -186,8 +193,8 @@
         echo("<script>alert('You did not edit anything!, if you do not want to edit the note then click cancel')</script>");
     }
     ?>    
-    <script src="../../../Frontend/Notes/userNote/editNote.js"></script>
+    <script src="../../../Frontend/Notes/EditNote/editNote.js"></script>
     <script src="../../../Frontend/Components/Index/index.js"></script>
-    <script src="../../../Frontend/Notes/clickNote/clickNote.js"></script>
+    <script src="../../../Frontend/Notes/ClickNote/clickNote.js"></script>
 </body>
 </html>

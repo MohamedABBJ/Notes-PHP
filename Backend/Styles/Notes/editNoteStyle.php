@@ -105,14 +105,27 @@ header('Content-type: text/css; charset:UTF-8')
 .LeftBarContent .LeftBarContent_Buttons .HomeButton{
    background-color:#004c42;
 }
-.LeftBarContent .LeftBarContent_Buttons .EditingNoteButton {
+.LeftBarContent .LeftBarContent_Buttons .ViewingNoteButton {
     margin-left:20px;
+    width:185px;
+    background-color:#004c42;
+}
+.LeftBarContent .LeftBarContent_Buttons .ViewingNoteButton > p{
+    width:80px;
+}
+.LeftBarContent .LeftBarContent_Buttons .ViewingNoteButton > img{
+    content:url("../../../Assets/Global/ViewingNoteIcon.png");
+
+}
+.LeftBarContent .LeftBarContent_Buttons .EditingNoteButton {
+    margin-top:3px;
+    margin-left:40px;
     width:185px;
 }
 .LeftBarContent .LeftBarContent_Buttons .EditingNoteButton > p{
     width:80px;
 }
 .LeftBarContent .LeftBarContent_Buttons .EditingNoteButton > img{
-    content:url("../../../Assets/Global/MyNotesIcon.png");
+    content:url("../../../Assets/Global/EditingNoteIcon.png");
 
 }
