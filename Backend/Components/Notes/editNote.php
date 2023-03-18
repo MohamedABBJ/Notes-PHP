@@ -160,10 +160,12 @@
         $editNoteDescriptionQuery->bindParam(':noteTitle', $newTitle);
         $editNoteDescriptionQuery->bindParam(':noteDescription', $newDescription);
         $editNoteDescriptionQuery->execute();
+        session_start();
+        $_SESSION['noteId'] = $noteId;
         echo("<script>
         removeElements();
         addElementsBothEdited();
-        setTimeout(function() { window.location = '../../index.php'; }, 2000);
+        setTimeout(function() { window.location = './clickNote.php'; }, 2000);
         </script>");
     }
     //Editing noteTitle
@@ -171,10 +173,12 @@
             $editNoteQuery = $db -> prepare("UPDATE `notes-app`.`notesuser($idUser)` SET `notetitle` = :noteTitle  WHERE idnotesuser = $noteId");
             $editNoteQuery->bindParam(':noteTitle', $newTitle);
             $editNoteQuery->execute();
+            session_start();
+            $_SESSION['noteId'] = $noteId;
             echo("<script>
             removeElements();
             addElementsNoteTitleEdited();
-            setTimeout(function() { window.location = '../../index.php'; }, 2000);
+            setTimeout(function() { window.location = './clickNote.php'; }, 2000);
             </script>");
         }
         //Editing noteDescription
@@ -182,10 +186,12 @@
             $editDescriptionQuery = $db -> prepare("UPDATE `notes-app`.`notesuser($idUser)` SET `notedescription` = :noteDescription  WHERE idnotesuser = $noteId");
             $editDescriptionQuery->bindParam(':noteDescription', $newDescription);
             $editDescriptionQuery->execute();
+            session_start();
+            $_SESSION['noteId'] = $noteId;
             echo("<script>
             removeElements();
             addElementsNoteDescriptionEdited();
-            setTimeout(function() { window.location = '../../index.php'; }, 2000);
+            setTimeout(function() { window.location = './clickNote.php'; }, 2000);
             </script>");
             
         }
