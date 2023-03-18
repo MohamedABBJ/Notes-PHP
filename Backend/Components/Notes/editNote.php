@@ -88,7 +88,7 @@
                 );
                 ?>
                 <div id="button_cancel" class="buttons">
-                    <button class="cancelBtn" onclick="cancel()">Cancel</button>
+                    <button class="cancelBtn" onclick="btnClickCancel()">Cancel</button>
                 </div>
              <br>
     </div>
