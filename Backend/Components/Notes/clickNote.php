@@ -30,11 +30,11 @@
                     </form>
                     <div class='LeftBarContent_Buttons'>
                     <button class='HomeButton' onclick='btnClickHome()'>
-                    <p>Home</p>
+                    <p>My notes</p>
                     <img>
                     </button>
-                    <button class='EditingNoteButton'>
-                    <p>Editing Note</p>
+                    <button class='ViewingNoteButton'>
+                    <p>Viewing Note</p>
                     <p class='HomeIcon'></p>
                     <img>
                     </button>
@@ -53,30 +53,51 @@
     <div class="Content">
                 <?php
                 include(__DIR__ . "../../DB/dbConection.php");
-                $noteId = $_POST['noteId'];
-                $_SESSION['noteId'] = $noteId;
+                $noteId = $_POST['noteId'] ?? NULL;
                 $idUser = $_SESSION['iduser'];
+                
+                if($noteId === NULL){
+                    $noteId = $_SESSION['noteId'];
+                    $searchNoteQuery = $db->prepare("SELECT notetitle, notedescription FROM `notes-app`.`notesuser($idUser)` WHERE idnotesuser = $noteId");
+                    $searchNoteQuery->execute();
+                    $searchNote = $searchNoteQuery->fetch();
+                    $noteTitle = $searchNote[0];
+                    $noteDescription = $searchNote[1];
+                    echo ("
+                    <div class='NoteTitleAndDescription'>
+                    <h2>Note Title</h2>
+                    <h1>$noteTitle</h1>
+                    <h2>Note description</h2>
+                    <div class='NoteDescription'>
+                    <textarea disabled name='' id='' cols='30' rows='10'>$noteDescription</textarea>  
+                    </div>
+                    </div>
+                    "
+                    );
+                }else{
+                    $_SESSION['noteId'] = $noteId;
+                    $searchNoteQuery = $db->prepare("SELECT notetitle, notedescription FROM `notes-app`.`notesuser($idUser)` WHERE idnotesuser = $noteId");
+                    $searchNoteQuery->execute();
+                    $searchNote = $searchNoteQuery->fetch();
+                    $noteTitle = $searchNote[0];
+                    $noteDescription = $searchNote[1];
+                    echo ("
+                    <div class='NoteTitleAndDescription'>
+                    <h2>Note Title</h2>
+                    <h1>$noteTitle</h1>
+                    <h2>Note description</h2>
+                    <div class='NoteDescription'>
+                    <textarea disabled name='' id='' cols='30' rows='10'>$noteDescription</textarea>  
+                    </div>
+                    </div>
+                    "
+                    );
+                }
 
-                $searchNoteQuery = $db->prepare("SELECT notetitle, notedescription FROM `notes-app`.`notesuser($idUser)` WHERE idnotesuser = $noteId");
-                $searchNoteQuery->execute();
-                $searchNote = $searchNoteQuery->fetch();
-                $noteTitle = $searchNote[0];
-                $noteDescription = $searchNote[1];
-                echo ("
-                <div class='NoteTitleAndDescription'>
-                <h2>Note Title</h2>
-                <h1>$noteTitle</h1>
-                <h2>Note description</h2>
-                <div class='NoteDescription'>
-                <textarea disabled name='' id='' cols='30' rows='10'>$noteDescription</textarea>  
-                </div>
-                </div>
-                "
-                );
                 ?>
                 <div class="buttons">
-                    <button onclick="editTask()">Edit Note</button>
-                    <button onclick="deleteTask()">Delete Note</button>
+                    <button onclick="editNote()">Edit Note</button>
+                    <button onclick="deleteNote()">Delete Note</button>
                 </div>
         </div>
         <script src="../../../Frontend/Components/Index/index.js"></script>

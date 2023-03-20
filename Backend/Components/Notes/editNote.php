@@ -16,6 +16,7 @@
     </div>
     <div class='LeftBarContent'>
         <?php
+        $noteId = $_SESSION['noteId'];
         if ($loginStatus === 1) {
             echo "
                     <div class='LeftBarContent_NotesMark'>
@@ -28,8 +29,14 @@
                     </form>
                     <div class='LeftBarContent_Buttons'>
                     <button class='HomeButton' onclick='btnClickHome()'>
-                    <p>Home</p>
+                    <p>My notes</p>
                     <img>
+                    </button>
+                    <form action='./clickNote.php' id='submitNote' method='post'>
+                    <button class='ViewingNoteButton' type='submit' name='noteId' value='$noteId'>
+                    <p>View Note</p>
+                    <img>
+                    </form>
                     </button>
                     <button class='EditingNoteButton'>
                     <p>Editing Note</p>
@@ -81,7 +88,7 @@
                 );
                 ?>
                 <div id="button_cancel" class="buttons">
-                    <button class="cancelBtn" onclick="cancel()">Cancel</button>
+                    <button class="cancelBtn" onclick="btnClickCancel()">Cancel</button>
                 </div>
              <br>
     </div>
@@ -153,10 +160,12 @@
         $editNoteDescriptionQuery->bindParam(':noteTitle', $newTitle);
         $editNoteDescriptionQuery->bindParam(':noteDescription', $newDescription);
         $editNoteDescriptionQuery->execute();
+        session_start();
+        $_SESSION['noteId'] = $noteId;
         echo("<script>
         removeElements();
         addElementsBothEdited();
-        setTimeout(function() { window.location = '../../index.php'; }, 2000);
+        setTimeout(function() { window.location = './clickNote.php'; }, 2000);
         </script>");
     }
     //Editing noteTitle
@@ -164,10 +173,12 @@
             $editNoteQuery = $db -> prepare("UPDATE `notes-app`.`notesuser($idUser)` SET `notetitle` = :noteTitle  WHERE idnotesuser = $noteId");
             $editNoteQuery->bindParam(':noteTitle', $newTitle);
             $editNoteQuery->execute();
+            session_start();
+            $_SESSION['noteId'] = $noteId;
             echo("<script>
             removeElements();
             addElementsNoteTitleEdited();
-            setTimeout(function() { window.location = '../../index.php'; }, 2000);
+            setTimeout(function() { window.location = './clickNote.php'; }, 2000);
             </script>");
         }
         //Editing noteDescription
@@ -175,10 +186,12 @@
             $editDescriptionQuery = $db -> prepare("UPDATE `notes-app`.`notesuser($idUser)` SET `notedescription` = :noteDescription  WHERE idnotesuser = $noteId");
             $editDescriptionQuery->bindParam(':noteDescription', $newDescription);
             $editDescriptionQuery->execute();
+            session_start();
+            $_SESSION['noteId'] = $noteId;
             echo("<script>
             removeElements();
             addElementsNoteDescriptionEdited();
-            setTimeout(function() { window.location = '../../index.php'; }, 2000);
+            setTimeout(function() { window.location = './clickNote.php'; }, 2000);
             </script>");
             
         }
@@ -186,8 +199,8 @@
         echo("<script>alert('You did not edit anything!, if you do not want to edit the note then click cancel')</script>");
     }
     ?>    
-    <script src="../../../Frontend/Notes/userNote/editNote.js"></script>
+    <script src="../../../Frontend/Notes/EditNote/editNote.js"></script>
     <script src="../../../Frontend/Components/Index/index.js"></script>
-    <script src="../../../Frontend/Notes/clickNote/clickNote.js"></script>
+    <script src="../../../Frontend/Notes/ClickNote/clickNote.js"></script>
 </body>
 </html>

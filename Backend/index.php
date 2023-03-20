@@ -11,7 +11,7 @@
 <body>
     <div class="TopBarContent">
     <?php 
-        include(__DIR__ . "./Global/topBarContent.php");
+        include("./Global/topBarContent.php");
      ?>
     </div>
     <div class='LeftBarContent'>
@@ -28,7 +28,7 @@
                     </form>
                     <div class='LeftBarContent_Buttons'>
                     <button>
-                    <p>Home</p>
+                    <p>My notes</p>
                     <p class='HomeIcon'></p>
                     <img>
                     </button>
@@ -41,7 +41,9 @@
             }
          else{
                 echo "
-                <button onclick='btnClickLogIn()'>Login</button>";
+                <div class='LeftBarContent_NotesMark'>
+                <img>
+                </div>";
         }
 
             ?>
@@ -67,10 +69,6 @@
                     </form>
                     ";
             }
-         else{
-                echo "
-                <h1>You have to log in first!</h1>";
-        }
             
 
         ?>
@@ -80,7 +78,7 @@
     <?php   
         $loginStatus = $_SESSION['loginStatus'] ?? NULL;
         if($loginStatus === 1) {
-            include(__DIR__ . "./Components/DB/dbConection.php");
+            include("./Components/DB/dbConection.php");
             $idUser = $_SESSION['iduser'];
             $maxUserNotesId = $_SESSION['maxUserNotesId'];
             for ($i = 1; $i < $maxUserNotesId + 1; $i++){
@@ -89,6 +87,7 @@
                 $showNotesQuery->bindParam(':idnotesuser', $i);
                 $showNotesQuery->execute();
                 $showNotesData = $showNotesQuery->fetch();
+
                 if(!empty($showNotesData)){
                     $showNoteTitle = $showNotesData[0];
                     $showNoteDescription = $showNotesData[1];
@@ -131,6 +130,16 @@
                     }
             
         }
+    }
+    else{
+                echo "
+                <div class='NotLoggedIn'>
+                <h1>You are not logged in!</h1> <br>
+                <div class='LoginBtn'>
+                <button onclick='btnClickLogIn()'>Login</button>;
+                </div>
+                </div>
+                ";
     }
                     
     ?>
