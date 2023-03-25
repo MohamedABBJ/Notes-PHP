@@ -14,7 +14,7 @@
     $username = $_REQUEST['username'];
     $email = $_REQUEST['email'];
     $password = $_REQUEST['password'];
-    $confirm_password = $_REQUEST['confirm_password'];
+    $confirm_password = $_REQUEST['confirmPassword'];
 
     $hashPassword = password_hash($password, PASSWORD_DEFAULT);
     $hashConfirmPassword = password_hash($confirm_password, PASSWORD_DEFAULT);
@@ -27,6 +27,15 @@
     $checkEmailQuery->execute();
     
     if(filter_var($email,FILTER_VALIDATE_EMAIL)){
+    if(strlen($password) < 6 || strlen($confirm_password) < 6){
+        echo("<script>alert('password needs to have at least 6 characters')</script>");
+        header("refresh:0;url='../../../Frontend/Components/Register/register.html");
+    }else{
+    if($password !== $confirm_password){
+            echo("<script>alert('passwords does not match')</script>");
+            header("refresh:0;url='../../../Frontend/Components/Register/register.html");
+        }
+    else{
     if($checkUserQuery -> rowCount() > 0 && $checkEmailQuery  -> rowCount() > 0){
         echo("<script>alert('The user $username and email $email are being used, please input another one')</script>");
         header("refresh:0;url='../../../Frontend/Components/Register/register.html");
@@ -67,11 +76,12 @@
      }else{
 
      }
-    }
+    }}}
 }else{
     echo("<script>alert('The email has an invalid input please input a valid email')</script>");
     header("refresh:0;url='../../../Frontend/Components/Register/register.html");
 }
+
 ?>
     
 </body>
