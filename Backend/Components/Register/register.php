@@ -68,7 +68,7 @@
 
 
                     if (isset($registerUserQuery) && isset($userTable)) {
-                        echo "<script> alert('The register has been completed sucessfully!') </script>";
+                        echo "<script> alert('The register has been completed sucessfully!')</script>";
                         header("refresh:0;url='../../../Frontend/Components/logIn/login.html");
                     } else {
                     }
