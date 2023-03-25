@@ -11,7 +11,7 @@
 <body>
     <div class="TopBarContent">
     <?php 
-        include(__DIR__ . "./Global/topBarContent.php");
+        include("./Global/topBarContent.php");
      ?>
     </div>
     <div class='LeftBarContent'>
@@ -78,7 +78,7 @@
     <?php   
         $loginStatus = $_SESSION['loginStatus'] ?? NULL;
         if($loginStatus === 1) {
-            include(__DIR__ . "./Components/DB/dbConection.php");
+            include("./Components/DB/dbConection.php");
             $idUser = $_SESSION['iduser'];
             $maxUserNotesId = $_SESSION['maxUserNotesId'];
             for ($i = 1; $i < $maxUserNotesId + 1; $i++){
