@@ -70,13 +70,12 @@
         $_SESSION['loginStatus'] = $loginStatus;
         $_SESSION['loginName'] = $loginName;
   
-        echo 'You have been loged to the system welcome!';
-        header("refresh:2;url='../../index.php");
+        header("refresh:0;url='../../index.php");
   
       }
   }else {
-    echo 'Username or password are incorrect!';
-    echo var_dump($password);
+    echo '<script>alert("Username or password are incorrect!")</script>';
+    header("refresh:0;url='../../../Frontend/Components/logIn/login.html");
   }
 }
   ?>
