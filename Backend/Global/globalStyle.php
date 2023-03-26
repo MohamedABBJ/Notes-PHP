@@ -12,7 +12,7 @@ html{
     overflow:hidden;
 }
 .TopBarContent{
-    position:relative;
+    position:relative; 
     border:solid black;
     width:81.4%;
     height:30vh;
@@ -81,8 +81,8 @@ html{
 }
 
 .LeftBarContent .LeftBarContent_Buttons button{
-    width:94%;
-    height:5vh;
+    width:220px;
+    height:40px;
     background-color:#003a33;
     border-radius:20px;
     border:none;
@@ -95,13 +95,13 @@ html{
     position:relative;
     margin-left:20%;
     color:white;
-    top:7px;
+    top:9px;
     width:40%;
 }
 .LeftBarContent .LeftBarContent_Buttons button > img{
     content:url("../../Assets/Global/HomeIcon.png");
     position:relative;
-    bottom:10px;
+    bottom:8px;
     margin-right:80%;
 }
 
@@ -109,6 +109,6 @@ html{
     border:solid black;
     overflow:auto;
     width:73%;
-    height:68vh;
+    height:68.39vh;
 }
 

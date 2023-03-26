@@ -25,12 +25,13 @@ header('Content-type: text/css; charset:UTF-8')
 }
 .Content .Notes .Notebtn .NoteDescription{
     margin:-10px 0px 0px 0px;
-    width:80%;
+    width:74%;
     resize:none;
     overflow:hidden;
     border:none;
-    outline:none; 
+    outline:none;  
 }
+
 
 .Content .Notes{
     justify-content: center;
@@ -38,7 +39,6 @@ header('Content-type: text/css; charset:UTF-8')
     display: flex;
     flex-direction: row;
     flex-wrap:wrap;
-    
 }
 .Content .Notes > div{
     padding: 15px;
@@ -46,10 +46,10 @@ header('Content-type: text/css; charset:UTF-8')
 
 .NotesContent{
     position:relative;
-    margin-top:-69.5vh;
+    margin-top:-69.3vh;
     margin-left:18.2%;
     height:68.6vh;
-    width:81.4%;
+    width:81.4%; 
 }
 .NotesContent .CreateNoteContent{
     position:absolute;
