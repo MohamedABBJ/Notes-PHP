@@ -146,7 +146,6 @@
     </div>
 </div>
         <script src="../Frontend/Components/Index/index.js"></script>
-        <script src="../Frontend/Components/Global/globalScript.js"></script>
     </script>
 
 </body>

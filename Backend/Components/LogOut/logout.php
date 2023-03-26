@@ -11,8 +11,6 @@ include(__DIR__ . "../../DB/dbConection.php");
     $loginStatus = $loggingOutQuery->fetchColumn();
     $_SESSION['loginStatus'] = $loginStatus;
 
-
-   echo 'Logging you out, see you next Time!';
-   header("refresh:2;url='../../index.php");
+   header("refresh:0;url='../../index.php");
     
     ?>
