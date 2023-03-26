@@ -109,6 +109,6 @@ html{
     border:solid black;
     overflow:auto;
     width:73%;
-    height:68vh;
+    height:68.39vh;
 }
 

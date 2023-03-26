@@ -38,7 +38,6 @@ header('Content-type: text/css; charset:UTF-8')
     display: flex;
     flex-direction: row;
     flex-wrap:wrap;
-    
 }
 .Content .Notes > div{
     padding: 15px;
@@ -46,10 +45,10 @@ header('Content-type: text/css; charset:UTF-8')
 
 .NotesContent{
     position:relative;
-    margin-top:-69.5vh;
+    margin-top:-69.3vh;
     margin-left:18.2%;
     height:68.6vh;
-    width:81.4%;
+    width:81.4%; 
 }
 .NotesContent .CreateNoteContent{
     position:absolute;
