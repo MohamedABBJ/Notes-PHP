@@ -49,8 +49,8 @@ header('Content-type: text/css; charset:UTF-8')
 .Content .NoteTitleAndDescription #NoteTitleAndDescriptionContent > form > input{
     background-color:transparent;
     border:none;
-    font-size:20px;
-    margin-left:15px;
+    font-size:32px;
+    font-weight:bold;
     width:70%;
     text-align:center;
     border-bottom:solid rgba(0, 0, 0, .2);
@@ -82,19 +82,19 @@ header('Content-type: text/css; charset:UTF-8')
     font-size:18px;
     border:none;
     border-radius:10px;
-    width:275px;
+    width:278px;
     height:40px;
     color:white;
 }
 .Content .buttons .editBtn{
     position:relative;
-    top:40px;
-    right:140px;
+    top:27px;
+    right:141px;
 }
 .Content .buttons .cancelBtn{
     position:relative;
-    bottom:13px;
-    left:140px;
+    bottom:12px;
+    left:141px;
 }
 .Content .buttons button:hover{
     background-color:#db4800;
