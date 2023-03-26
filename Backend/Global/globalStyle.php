@@ -67,7 +67,7 @@ html{
     right:20px;
 }
 
-.LeftBarContent .LeftBarContent_LogoutButton form > input{
+.LeftBarContent .LeftBarContent_LogoutButton button{
     background-color:transparent;
     border-radius:20px;
     border: 2px solid white;
@@ -76,7 +76,7 @@ html{
     color:white;
 }
 
-.LeftBarContent .LeftBarContent_LogoutButton form > input:hover{
+.LeftBarContent .LeftBarContent_LogoutButton button:hover{
     background-color:#003a33;
 }
 
