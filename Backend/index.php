@@ -22,8 +22,7 @@
                     <img>
                     </div>
                     <div class='LeftBarContent_LogoutButton'>
-                    <form action='./Components/LogOut/logout.php' method='post'>
-                    <input type='submit' value='Logout' name='logout'>
+                    <button onclick='btnClickLogOut()'>Logout</button>
                     </div>
                     </form>
                     <div class='LeftBarContent_Buttons'>

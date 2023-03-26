@@ -4,6 +4,7 @@ let checkSubmit = () => {
 
     if(password.length < 6){
         alert("password needs to have at least 6 characters");
+        return false;
     }else{
         if(password === confirmPassword){
             return true;

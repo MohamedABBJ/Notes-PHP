@@ -22,8 +22,7 @@ $maxUserNotesIdQuery = $maxUserNotesIdQuery->fetch(PDO::FETCH_ASSOC);
 $maxUserNotesId = $maxUserNotesIdQuery['maxUserNotesId'];
 $_SESSION['maxUserNotesId'] = $maxUserNotesId;
 
-echo 'Loading...';
-header("refresh:1;url='../../index.php");
+header("refresh:0;url='../../index.php");
 
 ?>
 </body>
