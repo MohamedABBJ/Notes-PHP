@@ -78,11 +78,13 @@ header('Content-type: text/css; charset:UTF-8')
    background-color:#004c42;
 }
 .LeftBarContent .LeftBarContent_Buttons .ViewingNoteButton {
+    margin-top:3px;
     margin-left:20px;
-    width:185px;
+    width:198px;
 }
 .LeftBarContent .LeftBarContent_Buttons .ViewingNoteButton > p{
     width:80px;
+    top:10px;
 }
 .LeftBarContent .LeftBarContent_Buttons .ViewingNoteButton > img{
     content:url("../../../Assets/Global/ViewingNoteIcon.png");
