@@ -25,12 +25,13 @@ header('Content-type: text/css; charset:UTF-8')
 }
 .Content .Notes .Notebtn .NoteDescription{
     margin:-10px 0px 0px 0px;
-    width:80%;
+    width:74%;
     resize:none;
     overflow:hidden;
     border:none;
-    outline:none; 
+    outline:none;  
 }
+
 
 .Content .Notes{
     justify-content: center;
