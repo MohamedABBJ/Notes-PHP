@@ -9,4 +9,4 @@ let deleteNote = () =>{
 }
 btnClickHome = () =>{
     location.href = "../../../Backend/index.php";
-  };
+};

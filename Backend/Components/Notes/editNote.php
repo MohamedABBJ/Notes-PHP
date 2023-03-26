@@ -23,8 +23,7 @@
                     <img src='../Assets/Index/Logo.png' alt='' srcset=''>
                     </div>
                     <div class='LeftBarContent_LogoutButton'>
-                    <form action='./Components/LogOut/logout.php' method='post'>
-                    <input type='submit' value='Logout' name='logout'>
+                    <button onclick='btnClickLogOut()'>Logout</button>
                     </div>
                     </form>
                     <div class='LeftBarContent_Buttons'>
@@ -200,6 +199,7 @@
     }
     ?>    
     <script src="../../../Frontend/Notes/EditNote/editNote.js"></script>
+    <script src="../../../Frontend/Components/Global/globalScript.js"></script>
     <script src="../../../Frontend/Components/Index/index.js"></script>
     <script src="../../../Frontend/Notes/ClickNote/clickNote.js"></script>
 </body>
