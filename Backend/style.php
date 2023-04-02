@@ -22,10 +22,13 @@ header('Content-type: text/css; charset:UTF-8')
     margin:-30px 0px 0px 10px;
     font-weight:bold;
     font-size:20px;
+
 }
 .Content .Notes .Notebtn .NoteDescription{
-    margin:-10px 0px 0px 0px;
-    width:74%;
+    text-align:left;
+    margin:-19px 0px 0px 0px;
+    width:132px;
+    height:120px;
     resize:none;
     overflow:hidden;
     border:none;
@@ -86,6 +89,7 @@ header('Content-type: text/css; charset:UTF-8')
     font-size:20px;
     margin-left:15px;
     width:80%;
+    
 }
 .NotesContent .CreateNoteContent .NewNoteInputs input{
     border-bottom:solid rgba(0, 0, 0, .1);
@@ -99,7 +103,7 @@ header('Content-type: text/css; charset:UTF-8')
     background-position:0px 35px;
     resize:none;
     overflow:hidden;
-    line-height:7vh;
+    line-height:50px;
     margin-top:20px;
 }
 .NotesContent .CreateNoteContent .AddNoteBtn{
